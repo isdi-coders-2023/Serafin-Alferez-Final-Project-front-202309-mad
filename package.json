@@ -3,14 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:ts": "tsc -w",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest --watchAll --coverage",
-    "test:pro": "jest --watchAll --coverage --watchAll=false --passWithNoTests",
-    "test:coverage": "jest --watchAll --coverage",
+    "test": "jest",
+    "test:prod": "jest --watchAll --coverage --watchAll=false --passWithNoTests",
+    "test:w": "jest --watchAll --coverage --collectCoverageFrom=src/**/*.{ts,tsx}",
+    "test:f": "jest --watchAll --coverage",
     "prepare": "husky install",
     "sass": "sass scss:css -w --no-source-map",
     "api": "json-server --watch ./api/db.json"
@@ -47,6 +50,9 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
+  "keywords": [],
+  "author": "Serafin Alferez Alferez",
+  "license": "ISC",
   "prettier": {
     "singleQuote": true
   }
