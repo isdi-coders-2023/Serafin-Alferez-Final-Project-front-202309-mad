@@ -1,12 +1,11 @@
 
 
 
-export function Home() {
+export function HomePage() {
   return (
     <>
-
       <div>
-        <h1>HOME</h1>
+        <h1>hola</h1>
       </div>
     </>
 

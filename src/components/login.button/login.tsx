@@ -25,7 +25,7 @@ export function Login() {
       <>
         <h2>LOGIN</h2>
         {!hasLogin && (
-          <form onSubmit={handleSubmit} className="login-form">
+          <form onSubmit={handleSubmit} className="login-form" aria-label="form">
             <label>EMAIL</label>
               <input type="email" name="email" required />
             <label>PASSWORD</label>
@@ -43,9 +43,9 @@ export function Login() {
         {hasLogin && (
           <div>
             <p>SUCESS</p>
-            <Link to={'/home/'}>
+            {/* <Link to={'/home/'}>
               <button type="button">HOME</button>
-            </Link>
+            </Link> */}
           </div>
         )}
       </>

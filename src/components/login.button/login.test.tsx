@@ -1,45 +1,38 @@
-// import React from 'react';
-// import { render, fireEvent, screen } from '@testing-library/react';
-// import { Login } from './login'
-// import { useUsers } from '../../hooks/use.users';
+import '@testing-library/jest-dom';
+import { render, fireEvent, screen } from '@testing-library/react';
+import { Login } from './login'
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { store } from '../../store/store';
+import userEvent from '@testing-library/user-event';
+import { useUsers } from '../../hooks/use.users';
 
-// // Mocking the useUsers hook
-// jest.mock('../../hooks/use.users', () => ({
-//   useUsers: () => ({
-//     login: jest.fn(),
-//   }),
+jest.mock('../../hooks/use.users', () => ({
+  useUsers: jest.fn().mockReturnValue({
+    login: jest.fn(),
+  }),
 
-// }));
+}));
 
-// describe('Given login component...', () => {
-//   describe('When Login component is called', () => {
-//     beforeEach(() => {
-//       render(<Login></Login>)
-      
-//     })
+describe('Given login component...', () => {
+  describe('When Login component is called', () => {
+      render(
+        <Router>
+          <Provider store={store}>
+            <Login></Login>
+          </Provider>
+        </Router>
+      );  
     
-//     test('renders login form and handles submission', () => {
-//       // Check if the form is rendered
-//       const emailInput = screen.getByLabelText('EMAIL');
-//       const passwordInput = screen.getByLabelText('PASSWORD');
-//       const loginButton = screen.getByText('LOGIN');
-
-//       // Mock user input
-//       fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-//       fireEvent.change(passwordInput, { target: { value: 'password123' } });
-
-//       // Trigger form submission
-//       fireEvent.click(loginButton);
-
-//       // Check if the login function is called
-//       expect(useUsers().login).toHaveBeenCalledWith({
-//         email: 'test@example.com',
-//         passwd: 'password123',
-//       });
-
-//       // Check if the success message is rendered
-//       const successMessage = screen.getByText('SUCCESS');
-//       expect(successMessage).toBeInTheDocument();
-//     });
-//   })
-// })
+    test('Then it complete the form', async () => {
+      const form = screen.getByRole('form');
+      const input = screen.getAllByRole('textbox');
+      await userEvent.type(input[0], 'test');
+      await userEvent.click(screen.getAllByRole('button')[0]);
+      await fireEvent.submit(form);
+      const cancelButton = screen.queryByText('CANCEL');
+      expect(useUsers().login).toHaveBeenCalled();
+      expect(cancelButton).toBeNull();
+  });
+});
+});

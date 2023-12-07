@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { Login } from "../login.button/login.button";
-import { Register } from "../register/register";
-import { LogoutButton } from "../logout.button/logout.button";
+
+import { LogoutButton } from "../logout.button/logout";
+
+import { Link } from "react-router-dom";
 
 
 export function HeaderButtons() {
@@ -13,9 +14,13 @@ export function HeaderButtons() {
     <div>
       {!loggedUser && (
         <>
-          <Login></Login>
-          <Register></Register>
-        
+          <Link to={"/login"} style={{color:'inherit'}} >
+          <img src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_30/v1701966155/Proyecto%20Final%20Figma/login_nntogf.png" alt="Login icon" />
+         
+          </Link>
+          <Link to={"/register"} style={{color:'inherit'}} >
+            <img src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_100/v1701966182/Proyecto%20Final%20Figma/user-plus-solid_kx1mhi.svg" alt="" />
+          </Link>
         </>
       )}
       {loggedUser && (

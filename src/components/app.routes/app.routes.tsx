@@ -1,8 +1,9 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Login } from "../login.button/login.button";
-import { Register } from "../register/register";
-import { Home } from "../pages/home";
+
+import { HomePage } from "../pages/home";
+import { RegisterPage } from "../pages/register.page";
+import { LoginPage } from "../pages/login.page";
 
 
 export function AppRoutes() {
@@ -10,9 +11,9 @@ export function AppRoutes() {
     <main>
       <Suspense>
         <Routes>
-          <Route path="/register" element={<Register></Register>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
-          <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/register" element={<RegisterPage></RegisterPage>}></Route>
+          <Route path="/login" element={<LoginPage></LoginPage>}></Route>
+          <Route path="/home" element={<HomePage></HomePage>}></Route>
         </Routes>
       </Suspense>
     </main>
