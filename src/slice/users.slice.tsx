@@ -25,9 +25,6 @@ const usersSlice = createSlice({
     setToken: (state, action) => {
       state.token = action.payload;
     },
-    clearToken: (state) => {
-      state.token = null;
-    },
     logout: (state: UsersState) => {
       state.loggedUser = null;
       state.token = null;
@@ -60,4 +57,4 @@ const usersSlice = createSlice({
 
 export default usersSlice.reducer;
 export const ac = usersSlice.actions;
-export const { setToken, clearToken, logout } = usersSlice.actions;
+export const { setToken, logout } = usersSlice.actions;

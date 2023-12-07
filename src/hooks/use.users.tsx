@@ -30,15 +30,14 @@ export function useUsers() {
   //   }
   // };
 
-  const logout = () => {
+  const userLogout = () => {
     dispatch(ac.logout());
-    userStore.remove();
   };
 
   return {
     register,
     login,
-    logout,
+    logout: userLogout,
     // loginTokenThunk,
   };
 }
