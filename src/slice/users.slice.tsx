@@ -42,16 +42,11 @@ const usersSlice = createSlice({
         state.token = payload.token;
       }
     );
-    // builder.addCase(loginThunk.rejected, (state: UsersState) => {
-    //   state.loginLoadState = 'error';
-    // });
-    // builder.addCase(
-    //   loginTokenThunk.fulfilled,
-    //   (state: UsersState, { payload }: PayloadAction<LoginResponse>) => {
-    //     state.loggedUser = payload.user;
-    //     state.token = payload.token;
-    //   }
-    // );
+
+    builder.addCase(loginThunk.rejected, (state: UsersState) => {
+      state.loginLoadState = 'error';
+    });
+
   },
 });
 

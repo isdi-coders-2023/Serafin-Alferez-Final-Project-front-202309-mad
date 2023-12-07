@@ -47,7 +47,7 @@ export function Login() {
               <button type="button">HOME</button>
             </Link>
           </div>
-        )} 
+        )}
       </>
       )
   }

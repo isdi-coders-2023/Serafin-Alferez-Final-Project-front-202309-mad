@@ -4,6 +4,7 @@ import { LoginUser } from '../entities/user';
 //T import { LocalStorage } from '../services/local.storage';
 import { UserRepo } from '../services/api.repo.users';
 import { logout, setToken } from './users.slice';
+// Timport { LocalStorage } from '../services/local.storage';
 
 
 export const loginThunk = createAsyncThunk<LoginResponse, { loginUser: LoginUser; repo: UserRepo }>(
@@ -50,7 +51,7 @@ export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) =>
 
 // loginThunk
 
-// loginTokenThunk
+
 // export const loginTokenThunk = createAsyncThunk<LoginResponse, { token: string; repo: UserRepo }>(
 //   'loginWithToken',
 //   async ({ token, repo }, { dispatch }) => {
@@ -64,5 +65,5 @@ export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) =>
 
 //     return loginResponse;
 //   }
-// );
+
 
