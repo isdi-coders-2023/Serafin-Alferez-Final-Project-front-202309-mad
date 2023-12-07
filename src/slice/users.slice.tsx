@@ -9,7 +9,7 @@ type LoginState = 'idle' | 'logging' | 'error';
 export type UsersState = {
   loggedUser: User | null;
   loginLoadState: LoginState;
-  token: string;
+  token: string | null;
 };
 
 const initialState: UsersState = {
@@ -22,11 +22,17 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    logout: (state: UsersState) => {
-      state.loggedUser = null;
-      state.token;
-      return state;
+    setToken: (state, action) => {
+      state.token = action.payload;
     },
+    clearToken: (state) => {
+      state.token = null;
+    },
+    // logout: (state: UsersState) => {
+    //   state.loggedUser = null;
+    //   state.token;
+    //   return state;
+    // },
   },
 
   extraReducers: (builder) => {
@@ -55,3 +61,4 @@ const usersSlice = createSlice({
 
 export default usersSlice.reducer;
 export const ac = usersSlice.actions;
+export const { setToken, clearToken } = usersSlice.actions;

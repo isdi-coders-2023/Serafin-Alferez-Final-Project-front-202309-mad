@@ -43,14 +43,14 @@ export function Register() {
         </div>  
       </form>
     )}
-    {/* {hasRegister && (
+    {hasRegister && (
       <div>
         <p>SUCESSFUL</p>
         <Link to={'/home/'}>
           <button type="button">HOME</button>
         </Link>
       </div>
-    )}     */}
+    )}    
   </>
   );
 }

@@ -18,7 +18,7 @@ export function useUsers() {
   };
 
   const login = (loginUser: LoginUser) => {
-    dispatch(loginThunk({ loginUser, repo, userStore}));
+    dispatch(loginThunk({ loginUser, repo }));
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
