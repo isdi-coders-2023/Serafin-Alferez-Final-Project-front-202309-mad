@@ -1,5 +1,6 @@
 import { Car } from "./car";
 
+
 export type LoginUser = {
   email: string;
   passwd: string;
