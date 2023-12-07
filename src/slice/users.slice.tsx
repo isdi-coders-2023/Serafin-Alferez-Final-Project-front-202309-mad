@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User } from '../entities/user';
 
-import { loginThunk, loginTokenThunk } from './users.thunk';
+import { loginThunk } from './users.thunk';
 import { LoginResponse } from '../types/login.user';
 
 type LoginState = 'idle' | 'logging' | 'error';
@@ -28,11 +28,10 @@ const usersSlice = createSlice({
     clearToken: (state) => {
       state.token = null;
     },
-    // logout: (state: UsersState) => {
-    //   state.loggedUser = null;
-    //   state.token;
-    //   return state;
-    // },
+    logout: (state: UsersState) => {
+      state.loggedUser = null;
+      state.token = null;
+    },
   },
 
   extraReducers: (builder) => {
@@ -46,19 +45,19 @@ const usersSlice = createSlice({
         state.token = payload.token;
       }
     );
-    builder.addCase(loginThunk.rejected, (state: UsersState) => {
-      state.loginLoadState = 'error';
-    });
-    builder.addCase(
-      loginTokenThunk.fulfilled,
-      (state: UsersState, { payload }: PayloadAction<LoginResponse>) => {
-        state.loggedUser = payload.user;
-        state.token = payload.token;
-      }
-    );
+    // builder.addCase(loginThunk.rejected, (state: UsersState) => {
+    //   state.loginLoadState = 'error';
+    // });
+    // builder.addCase(
+    //   loginTokenThunk.fulfilled,
+    //   (state: UsersState, { payload }: PayloadAction<LoginResponse>) => {
+    //     state.loggedUser = payload.user;
+    //     state.token = payload.token;
+    //   }
+    // );
   },
 });
 
 export default usersSlice.reducer;
 export const ac = usersSlice.actions;
-export const { setToken, clearToken } = usersSlice.actions;
+export const { setToken, clearToken, logout } = usersSlice.actions;

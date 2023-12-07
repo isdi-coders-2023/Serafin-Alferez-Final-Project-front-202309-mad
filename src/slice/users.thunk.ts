@@ -3,8 +3,22 @@ import { LoginResponse } from '../types/login.user';
 import { LoginUser } from '../entities/user';
 //T import { LocalStorage } from '../services/local.storage';
 import { UserRepo } from '../services/api.repo.users';
-import { setToken } from './users.slice';
+import { logout, setToken } from './users.slice';
 
+
+export const loginThunk = createAsyncThunk<LoginResponse, { loginUser: LoginUser; repo: UserRepo }>(
+  'login',
+  async ({ loginUser, repo }, { dispatch }) => {
+    const loginResponse = await repo.login(loginUser);
+    dispatch(setToken(loginResponse.token)); // Dispatch an action to update the token in the store
+    return loginResponse;
+  }
+);
+
+export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) => {
+  dispatch(logout());
+  return 'Logout exitoso';
+});
 
 // T export const loginThunk = createAsyncThunk<
 //   LoginResponse,
@@ -35,22 +49,20 @@ import { setToken } from './users.slice';
   // Action creators for updating the store with the token
 
 // loginThunk
-export const loginThunk = createAsyncThunk<LoginResponse, { loginUser: LoginUser; repo: UserRepo }>(
-  'login',
-  async ({ loginUser, repo }, { dispatch }) => {
-    const loginResponse = await repo.login(loginUser);
-    dispatch(setToken(loginResponse.token)); // Dispatch an action to update the token in the store
-    return loginResponse;
-  }
-);
 
 // loginTokenThunk
-export const loginTokenThunk = createAsyncThunk<LoginResponse, { token: string; repo: UserRepo }>(
-  'loginWithToken',
-  async ({ token, repo }, { dispatch }) => {
-    const loginResponse = await repo.loginWithToken(token);
-    dispatch(setToken(loginResponse.token)); // Dispatch an action to update the token in the store
-    return loginResponse;
-  }
-);
+// export const loginTokenThunk = createAsyncThunk<LoginResponse, { token: string; repo: UserRepo }>(
+//   'loginWithToken',
+//   async ({ token, repo }, { dispatch }) => {
+//     const loginResponse = await repo.loginWithToken(token);
+
+//     // Dispatch para actualizar el estado en la tienda de Redux
+//     dispatch(setToken(loginResponse.token));
+
+//     // Almacenar el token en localStorage
+//     localStorage.setItem('authToken', loginResponse.token);
+
+//     return loginResponse;
+//   }
+// );
 
