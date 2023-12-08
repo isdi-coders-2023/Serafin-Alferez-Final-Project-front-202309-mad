@@ -14,7 +14,7 @@ jest.mock('../../hooks/use.users', () => ({
     loggedUser: {name: 'Pepe'}  }),
 }));
 
-describe('LogoutButton component', () => {
+describe('When LogoutButton component', () => {
   beforeEach(() => {
     
     render(
@@ -26,7 +26,7 @@ describe('LogoutButton component', () => {
     );
   });
 
-  it('renders logout button and triggers logout function on click', async () => {
+  test('renders logout button and triggers logout function on click', async () => {
     const logoutButton = screen.getByRole('button');
     expect(logoutButton).toBeInTheDocument();
     await userEvent.click(logoutButton);
