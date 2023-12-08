@@ -11,9 +11,9 @@ export function Register() {
     event.preventDefault();
     const formElement = event.target as HTMLFormElement;
    const data = {email: (formElement.elements.namedItem('email') as HTMLInputElement).value,
-  passwd: (formElement.elements.namedItem('passwd') as HTMLInputElement).value,
-  name: (formElement.elements.namedItem('name') as HTMLInputElement).value,
-  surname: (formElement.elements.namedItem('surname') as HTMLInputElement).value
+    passwd: (formElement.elements.namedItem('passwd') as HTMLInputElement).value,
+    name: (formElement.elements.namedItem('name') as HTMLInputElement).value,
+    surname: (formElement.elements.namedItem('surname') as HTMLInputElement).value
   } as Partial<User>;
   register(data)
     setHasRegister(true)
@@ -24,7 +24,7 @@ export function Register() {
     <h2>NEW USER</h2>
 
     {!hasRegister && (
-      <form onSubmit={handleSubmit} className="register-form">
+      <form onSubmit={handleSubmit} className="register-form" aria-label="form">
         <label>Email</label>
           <input type="email" name="email" required/>
         <label>Password</label>

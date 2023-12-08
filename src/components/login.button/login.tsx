@@ -43,9 +43,9 @@ export function Login() {
         {hasLogin && (
           <div>
             <p>SUCESS</p>
-            {/* <Link to={'/home/'}>
+            <Link to={'/home/'}>
               <button type="button">HOME</button>
-            </Link> */}
+            </Link>
           </div>
         )}
       </>

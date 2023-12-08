@@ -1,10 +1,13 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { HomePage } from "../pages/home";
-import { RegisterPage } from "../pages/register.page";
-import { LoginPage } from "../pages/login.page";
+// import  HomePage  from "../pages/home";
+// import { RegisterPage } from "../pages/register.page";
+// import { LoginPage } from "../pages/login.page";
 
+const RegisterPage = lazy(() => import('../pages/register.page'));
+const HomePage = lazy(() => import('../pages/home'));
+const LoginPage = lazy(() => import('../pages/login.page'))
 
 export function AppRoutes() {
   return (

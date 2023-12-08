@@ -1,6 +1,6 @@
 import { Login } from "../login.button/login";
 
-export function LoginPage() {
+export default function LoginPage() {
   return (
     <>
       <Login></Login>

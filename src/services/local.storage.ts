@@ -1,18 +1,18 @@
-export class LocalStorage<T> {
-  constructor(private storeName: string) {}
+// export class LocalStorage<T> {
+//   constructor(private storeName: string) {}
 
-  get() {
-    const initialData = localStorage.getItem(this.storeName);
-    if (!initialData) return null;
-    return JSON.parse(initialData) as T;
-  }
+//   get() {
+//     const initialData = localStorage.getItem(this.storeName);
+//     if (!initialData) return null;
+//     return JSON.parse(initialData) as T;
+//   }
 
-  set(data: T) {
-    const finalData = JSON.stringify(data);
-    localStorage.setItem(this.storeName, finalData);
-  }
+//   set(data: T) {
+//     const finalData = JSON.stringify(data);
+//     localStorage.setItem(this.storeName, finalData);
+//   }
 
-  remove() {
-    localStorage.removeItem(this.storeName);
-  }
-}
+//   remove() {
+//     localStorage.removeItem(this.storeName);
+//   }
+// }
