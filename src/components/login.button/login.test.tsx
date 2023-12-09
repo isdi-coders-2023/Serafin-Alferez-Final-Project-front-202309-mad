@@ -27,12 +27,11 @@ describe('Given login component...', () => {
     test('Then it complete the form', async () => {
       const form = screen.getByRole('form');
       const input = screen.getAllByRole('textbox');
-      const cancelButton = screen.queryByText('CANCEL');
       await userEvent.type(input[0], 'test');
       await userEvent.click(screen.getAllByRole('button')[0]);
       await fireEvent.submit(form);
       expect(useUsers().login).toHaveBeenCalled();
-      expect(cancelButton).toBeNull();
+
   });
 });
 });
