@@ -23,17 +23,14 @@ describe('Given Register component', () => {
     </Router>
     )
 
-    const title = screen.getByText('NEW USER');
+    // const title = screen.getByText('NEW USER');
     const form = screen.getByRole('form');
     const input = screen.getAllByRole('textbox');
     await userEvent.type(input[0],'test');
     await userEvent.click(screen.getAllByRole('button')[0]);
-    await fireEvent.submit(form);
-    
-    expect(title).toBeInTheDocument();
-    expect (useUsers().register).toHaveBeenCalled();
-    
-    
+    await fireEvent.submit(form);  
+    // expect(title).toBeInTheDocument();
+    expect (useUsers().register).toHaveBeenCalled(); 
   });
 
   })

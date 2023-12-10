@@ -21,7 +21,6 @@ export function Register() {
 
   return (
     <>
-    <h2>NEW USER</h2>
 
     {!hasRegister && (
       <form onSubmit={handleSubmit} className="register-form" aria-label="form">
