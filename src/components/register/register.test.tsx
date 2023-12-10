@@ -15,7 +15,7 @@ jest.mock('../../hooks/use.users', () => ({
 describe('Given Register component', () => {
   describe('When the Register component is rendered', () => {
     test('Then renders register form and handles submission', async () => {
-     render( 
+    render( 
       <Router>
       <Provider store={store}>
         <Register></Register>

@@ -23,13 +23,12 @@ export function Login() {
 
     return (
       <>
-        <h2>LOGIN</h2>
         {!hasLogin && (
           <form onSubmit={handleSubmit} className="login-form" aria-label="form">
-            <label>EMAIL</label>
-              <input type="email" name="email" required />
+            <label >EMAIL</label>
+              <input className="input-form" type="email" name="email" required />
             <label>PASSWORD</label>
-              <input type="password" name="password" required />
+              <input className="input-form" type="password" name="password" required />
             <div className="login-button">
               <button type="submit">LOGIN</button>
             </div>

@@ -65,5 +65,3 @@ export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) =>
 
 //     return loginResponse;
 //   }
-
-

@@ -39,5 +39,3 @@ describe('Give user.thunk', () => {
 });
 
     
-
-
