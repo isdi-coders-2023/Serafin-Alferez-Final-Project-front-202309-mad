@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User } from '../entities/user';
 
 import { loginThunk } from './users.thunk';
-import { LoginResponse } from '../types/login.user';
+import { LoginResponse } from '../types/login.response';
 
 type LoginState = 'idle' | 'logging' | 'error';
 

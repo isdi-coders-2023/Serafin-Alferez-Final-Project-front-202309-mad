@@ -11,7 +11,7 @@ export function LogoutButton() {
     <>
     {loggedUser && (
       <>
-      <Link to={'/logout/'}>
+      <Link to={'/home/'}>
         <img role="button" onClick={logout} src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_50/v1701966016/Proyecto%20Final%20Figma/logout_ovebqb.svg" alt="Logout icon" /> 
       </Link>
     {/* <button onClick={logout} role="button">LOGOUT</button> */}

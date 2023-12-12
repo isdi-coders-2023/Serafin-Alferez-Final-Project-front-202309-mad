@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { LoginResponse } from '../types/login.user';
+import { LoginResponse } from '../types/login.response';
 import { LoginUser } from '../entities/user';
 //T import { LocalStorage } from '../services/local.storage';
 import { UserRepo } from '../services/api.repo.users';
