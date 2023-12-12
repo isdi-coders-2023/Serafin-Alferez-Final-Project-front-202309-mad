@@ -1,5 +1,10 @@
+import { RootState } from "../../../store/store";
 import { List } from "../../list/list";
+import { useSelector } from "react-redux";
 
 export default function HomePage() {
-  return <List></List>;
+
+  const { cars } = useSelector((state: RootState) => state.carsState);
+
+  return <List carsToRender={cars}></List>;
 }

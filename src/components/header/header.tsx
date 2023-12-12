@@ -15,6 +15,7 @@ export function Header() {
       </Link>
       <h1>MY CLASSIC CARS</h1>
       <HeaderButtons></HeaderButtons>
+
     </header>
   )
 }

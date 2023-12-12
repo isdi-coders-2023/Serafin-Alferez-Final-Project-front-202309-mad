@@ -27,6 +27,9 @@ export function HeaderButtons() {
         <>
           <LogoutButton></LogoutButton>
           <p>Hola {loggedUser.name}</p>
+          <Link to={'/profile/'}>
+            <button type="button">PROFILE</button>
+          </Link>
         </>
       )}
     </div>
