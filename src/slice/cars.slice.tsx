@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { loadCarsThunk } from './cars.thunk';
+import { createCarThunk, loadCarsThunk } from './cars.thunk';
 import { Car } from '../entities/car';
 
 export type CarsState
@@ -50,6 +50,14 @@ const carsSlice = createSlice({
       state.stateOption = 'error';
       return state;
     });
+
+    builder.addCase(
+      createCarThunk.fulfilled,
+      (state: CarsState, { payload }: PayloadAction<Car>) => ({
+        ...state,
+        cars: [...state.cars, payload]
+      })
+    )  
   },
 });
 

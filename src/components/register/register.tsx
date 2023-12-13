@@ -10,12 +10,12 @@ export function Register() {
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     const formElement = event.target as HTMLFormElement;
-  const data = {email: (formElement.elements.namedItem('email') as HTMLInputElement).value,
+    const data = {email: (formElement.elements.namedItem('email') as HTMLInputElement).value,
     passwd: (formElement.elements.namedItem('passwd') as HTMLInputElement).value,
     name: (formElement.elements.namedItem('name') as HTMLInputElement).value,
     surname: (formElement.elements.namedItem('surname') as HTMLInputElement).value
   } as Partial<User>;
-  register(data)
+    register(data)
     setHasRegister(true)
   };
 

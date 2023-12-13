@@ -4,6 +4,7 @@ import { RootState } from "../../store/store";
 import { LogoutButton } from "../logout.button/logout";
 
 import { Link } from "react-router-dom";
+import { AddCarButton } from "../add.car.button/add.car.button";
 
 
 export function HeaderButtons() {
@@ -25,10 +26,11 @@ export function HeaderButtons() {
       )}
       {loggedUser && (
         <>
+          <AddCarButton></AddCarButton>
           <LogoutButton></LogoutButton>
           <p>Hola {loggedUser.name}</p>
           <Link to={'/profile/'}>
-            <button type="button">PROFILE</button>
+            <button type="button">MY LIST</button>
           </Link>
         </>
       )}

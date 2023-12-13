@@ -1,15 +1,16 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CarsRepo } from "../services/api.repo.cars";
 import { useCallback, useMemo } from "react";
-import { AppDispatch } from "../store/store";
-import { loadCarsThunk } from "../slice/cars.thunk";
+import { AppDispatch, RootState } from "../store/store";
+import { createCarThunk, loadCarsThunk } from "../slice/cars.thunk";
 import { Car } from "../entities/car";
 import { setCurrentCar } from "../slice/cars.slice";
 
 export function useCars() {
   const dispatch = useDispatch<AppDispatch>();
-
-  const repo = useMemo(() => new CarsRepo(), []);
+  const { token } = useSelector((state: RootState) => state.userState);
+  const { cars } = useSelector((state: RootState) => state.carsState);
+  const repo = useMemo(() => new CarsRepo(token || ''), []);
 
   const loadCars = useCallback(async () => {
     try {
@@ -23,8 +24,23 @@ export function useCars() {
     dispatch(setCurrentCar(car));
   };
 
+  const createCar = async (newCar: FormData) => {
+    try{
+      dispatch(
+        createCarThunk({
+          repo,
+          newCar,
+        })
+      );
+    } catch (error) {
+      // console.log((error))
+    }
+  }
+
   return {
     loadCars,
     handleDetailsPage,
+    createCar,
+    cars,
   };
 }

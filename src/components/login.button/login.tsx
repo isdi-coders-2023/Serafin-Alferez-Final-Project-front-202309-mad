@@ -40,7 +40,7 @@ export function Login() {
             </div>
           </form>
         )}
-        {hasLogin && navigate('/profile')}
+        {hasLogin && navigate('/home/')}
       </>
       )
   }

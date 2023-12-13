@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { makeImageURL } from "../../services/images";
 import { details } from "./details.module.scss";
+import { RootState } from "../../../store/store";
+import { makeImageURL } from "../../../services/images";
+
+
 
 
 
