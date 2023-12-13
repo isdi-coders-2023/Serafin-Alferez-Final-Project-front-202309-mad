@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User } from '../entities/user';
 
-import { loginThunk } from './users.thunk';
+import { loginThunk, updateUserThunk } from './users.thunk';
 import { LoginResponse } from '../types/login.response';
 
 type LoginState = 'idle' | 'logging' | 'error';
@@ -46,6 +46,11 @@ const usersSlice = createSlice({
     builder.addCase(loginThunk.rejected, (state: UsersState) => {
       state.loginLoadState = 'error';
     });
+
+    builder.addCase(updateUserThunk.fulfilled, (state: UsersState, {payload}: PayloadAction<User>) => {
+
+      state.loggedUser = payload
+    })
 
   },
 });

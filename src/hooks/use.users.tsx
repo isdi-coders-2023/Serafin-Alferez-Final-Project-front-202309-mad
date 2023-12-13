@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { UserRepo } from "../services/api.repo.users";
 // import { LocalStorage } from "../services/local.storage";
-import { loginThunk } from "../slice/users.thunk";
+import { loginThunk, updateUserThunk } from "../slice/users.thunk";
 import { LoginUser, User } from "../entities/user";
 import { ac } from "../slice/users.slice";
 import { AppDispatch, RootState } from "../store/store";
@@ -27,11 +27,16 @@ export function useUsers() {
     dispatch(ac.logout());
   };
 
+  const updateCurrentUser = (id: string) => {
+    dispatch(updateUserThunk({repo: repo, id: id}))
+  }
+
   return {
     register,
     login,
     logout: userLogout,
-    loggedUser
+    loggedUser, 
+    updateCurrentUser
 
   };
 }

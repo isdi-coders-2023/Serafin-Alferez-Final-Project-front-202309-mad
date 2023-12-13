@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { LoginResponse } from '../types/login.response';
-import { LoginUser } from '../entities/user';
+import { LoginUser, User } from '../entities/user';
 //T import { LocalStorage } from '../services/local.storage';
 import { UserRepo } from '../services/api.repo.users';
 import { logout, setToken } from './users.slice';
@@ -19,6 +19,14 @@ export const loginThunk = createAsyncThunk<LoginResponse, { loginUser: LoginUser
 export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) => {
   dispatch(logout());
   return 'Logout exitoso';
+});
+
+export const updateUserThunk = createAsyncThunk<
+  User,
+  { repo: UserRepo; id: string }
+>('product/load', async ({ repo, id }) => {
+  const product = await repo.getUpdatedUserById(id);
+  return product;
 });
 
 // T export const loginThunk = createAsyncThunk<

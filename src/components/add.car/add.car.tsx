@@ -1,16 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCars } from "../../hooks/use.cars";
 import { SyntheticEvent } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { useUsers } from "../../hooks/use.users";
 
 export default function AddCar() {
   const navigate = useNavigate();
   const { createCar } = useCars();
+  const { updateCurrentUser } = useUsers();
+  const {loggedUser} = useSelector((state: RootState) => state.userState)
 
   const handleCreateCar = (event: SyntheticEvent) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     createCar(formData);
+    updateCurrentUser(loggedUser!.id);
+    console.log('Desde AddCar', loggedUser)
     navigate('/profile/');
   };
     return (
