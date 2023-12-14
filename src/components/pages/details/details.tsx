@@ -3,10 +3,6 @@ import { details } from "./details.module.scss";
 import { RootState } from "../../../store/store";
 import { makeImageURL } from "../../../services/images";
 
-
-
-
-
 export default function Details() {
   const { currentCar } = useSelector((state: RootState) => state.carsState);
   const carPicture = currentCar && currentCar.picture && makeImageURL(currentCar?.picture.publicId, 150);
