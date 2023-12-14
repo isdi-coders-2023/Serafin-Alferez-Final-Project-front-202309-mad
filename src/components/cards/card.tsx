@@ -5,6 +5,7 @@ import { useCars } from "../../hooks/use.cars";
 import { card } from './card.module.scss';
 
 
+
 type Props = {
   data: Car;
 };
@@ -16,6 +17,7 @@ export const Card = ({data}: Props) => {
   const handleDelete = () => {
     deleteCar(data.id);
   }
+
 
   return (
     <>

@@ -58,7 +58,7 @@ const usersSlice = createSlice({
       deleteCarThunk.fulfilled,
       (state, { payload }: { payload: Car['id'] }) => {
         state.loggedUser!.cars = state.loggedUser!.cars.filter((item) => {
-          item.id !== payload;
+          return item.id !== payload;
         });
       }
     );
