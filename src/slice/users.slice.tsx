@@ -1,8 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User } from '../entities/user';
 
-import { loginThunk, updateUserThunk } from './users.thunk';
+import { loginThunk } from './users.thunk';
 import { LoginResponse } from '../types/login.response';
+import { createCarThunk } from './cars.thunk';
+import { Car } from '../entities/car';
 
 type LoginState = 'idle' | 'logging' | 'error';
 
@@ -22,9 +24,6 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    setToken: (state, action) => {
-      state.token = action.payload;
-    },
     logout: (state: UsersState) => {
       state.loggedUser = null;
       state.token = null;
@@ -47,14 +46,20 @@ const usersSlice = createSlice({
       state.loginLoadState = 'error';
     });
 
-    builder.addCase(updateUserThunk.fulfilled, (state: UsersState, {payload}: PayloadAction<User>) => {
+    // builder.addCase(updateUserThunk.fulfilled, (state: UsersState, {payload}: PayloadAction<User>) => {
 
-      state.loggedUser = payload
-    })
-
+    //   state.loggedUser = payload
+    // })
+    builder.addCase(createCarThunk.fulfilled, (state: UsersState, {payload}:PayloadAction<Car>) => ({
+      ...state,
+      loggedUser: {
+        ...state.loggedUser!,
+        cars: [...state.loggedUser!.cars, payload]
+      }
+    }))
   },
 });
 
 export default usersSlice.reducer;
 export const ac = usersSlice.actions;
-export const { setToken, logout } = usersSlice.actions;
+export const { logout } = usersSlice.actions;

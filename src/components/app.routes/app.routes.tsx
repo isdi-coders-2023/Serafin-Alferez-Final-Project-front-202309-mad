@@ -15,6 +15,7 @@ export function AppRoutes() {
         <Routes>
           <Route path="/register" element={<RegisterPage></RegisterPage>}></Route>
           <Route path="/login" element={<LoginPage></LoginPage>}></Route>
+          <Route path="/" element={<HomePage></HomePage>}></Route>
           <Route path="/home" element={<HomePage></HomePage>}></Route>
           <Route path="/profile" element={<Profile></Profile>}></Route>
           <Route path="/details/:id" element={<Details></Details>}></Route>

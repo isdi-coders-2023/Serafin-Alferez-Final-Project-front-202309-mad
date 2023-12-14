@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { createCarThunk, loadCarsThunk } from './cars.thunk';
+import { createCarThunk, deleteCarThunk, loadCarsThunk } from './cars.thunk';
 import { Car } from '../entities/car';
 
 export type CarsState
@@ -57,7 +57,18 @@ const carsSlice = createSlice({
         ...state,
         cars: [...state.cars, payload]
       })
-    )  
+    );
+
+    builder.addCase(
+      deleteCarThunk.fulfilled,
+      (state: CarsState, { payload }: PayloadAction<Car['id']>) => {
+        state.cars.splice(
+          state.cars.findIndex((item) => item.id === payload),
+          1
+        );
+        return state;
+      }
+    );
   },
 });
 

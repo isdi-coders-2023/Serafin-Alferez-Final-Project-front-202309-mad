@@ -3,15 +3,14 @@ import { LoginResponse } from '../types/login.response';
 import { LoginUser, User } from '../entities/user';
 //T import { LocalStorage } from '../services/local.storage';
 import { UserRepo } from '../services/api.repo.users';
-import { logout, setToken } from './users.slice';
+import { logout } from './users.slice';
 // Timport { LocalStorage } from '../services/local.storage';
 
 
 export const loginThunk = createAsyncThunk<LoginResponse, { loginUser: LoginUser; repo: UserRepo }>(
   'login',
-  async ({ loginUser, repo }, { dispatch }) => {
+  async ({ loginUser, repo }) => {
     const loginResponse = await repo.login(loginUser);
-    dispatch(setToken(loginResponse.token)); // Dispatch an action to update the token in the store
     return loginResponse;
   }
 );
@@ -25,9 +24,12 @@ export const updateUserThunk = createAsyncThunk<
   User,
   { repo: UserRepo; id: string }
 >('product/load', async ({ repo, id }) => {
-  const product = await repo.getUpdatedUserById(id);
-  return product;
+  const result = await repo.getUpdatedUserById(id);
+  return result;
 });
+
+
+
 
 // T export const loginThunk = createAsyncThunk<
 //   LoginResponse,

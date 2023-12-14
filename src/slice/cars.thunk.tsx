@@ -22,3 +22,13 @@ export const createCarThunk = createAsyncThunk<Car, Params>(
     return addededCar;
   }
 );
+
+export const deleteCarThunk = createAsyncThunk<Car['id'],
+{
+  repo: CarsRepo;
+  id: Car['id'];
+}
+>('delete', async ({ repo, id }) => {
+  await repo.deleteCar(id);
+  return id;
+});
