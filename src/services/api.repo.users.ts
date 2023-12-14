@@ -39,19 +39,5 @@ export class UserRepo {
     return response.json();
   }
 
-  async getUpdatedUserById(id: string): Promise<User> {
 
-    const url = this.apiUrl + '/reload/' + id
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    if (!response.ok) {
-      throw new Error(response.status + ' ' + response.statusText)
-    }
-    return response.json()
-  }
 }

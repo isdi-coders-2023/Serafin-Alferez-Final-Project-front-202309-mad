@@ -32,7 +32,7 @@ export function HeaderButtons() {
         <>
           <AddCarButton></AddCarButton>
           <LogoutButton></LogoutButton>
-          <p>Hola {loggedUser.name}</p>
+          <p>Hola de nuevo {loggedUser.name}</p>
           {!isProfilePage && <button onClick={() => navigate('/profile/')}>MY LIST</button>}
         </>
       )}

@@ -38,5 +38,4 @@ export class CarsRepo {
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
   }
-
 }

@@ -3,7 +3,7 @@ import { User } from '../entities/user';
 
 import { loginThunk } from './users.thunk';
 import { LoginResponse } from '../types/login.response';
-import { createCarThunk } from './cars.thunk';
+import { createCarThunk, deleteCarThunk } from './cars.thunk';
 import { Car } from '../entities/car';
 
 type LoginState = 'idle' | 'logging' | 'error';
@@ -53,6 +53,15 @@ const usersSlice = createSlice({
         cars: [...state.loggedUser!.cars, payload]
       }
     }))
+
+    builder.addCase(
+      deleteCarThunk.fulfilled,
+      (state, { payload }: { payload: Car['id'] }) => {
+        state.loggedUser!.cars = state.loggedUser!.cars.filter((item) => {
+          item.id !== payload;
+        });
+      }
+    );
   },
 });
 

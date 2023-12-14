@@ -45,7 +45,4 @@ describe('Given userReducer', () => {
       expect(result.loginLoadState).toBe('error');
     });
   });
-  
-
-  
-  });
+});
