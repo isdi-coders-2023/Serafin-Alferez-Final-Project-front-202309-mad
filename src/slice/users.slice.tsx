@@ -46,10 +46,6 @@ const usersSlice = createSlice({
       state.loginLoadState = 'error';
     });
 
-    // builder.addCase(updateUserThunk.fulfilled, (state: UsersState, {payload}: PayloadAction<User>) => {
-
-    //   state.loggedUser = payload
-    // })
     builder.addCase(createCarThunk.fulfilled, (state: UsersState, {payload}:PayloadAction<Car>) => ({
       ...state,
       loggedUser: {

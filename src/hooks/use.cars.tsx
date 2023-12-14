@@ -12,7 +12,7 @@ export function useCars() {
   
   const { cars } = useSelector((state: RootState) => state.carsState);
 
-  const repo = useMemo(() => new CarsRepo(token || ''), []);
+  const repo = useMemo(() => new CarsRepo(token || ''), [token]);
 
   const loadCars = useCallback(async () => {
     try {

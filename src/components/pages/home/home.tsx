@@ -6,5 +6,10 @@ export default function HomePage() {
 
   const { cars } = useSelector((state: RootState) => state.carsState);
 
-  return <List carsToRender={cars}></List>;
+  return (
+    <>
+      <h3>ALL USERS PUBLICATIONS</h3>
+      <List carsToRender={cars}></List>
+    </>
+  )
 }

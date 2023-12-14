@@ -11,6 +11,7 @@ export default function Profile() {
 
   return(
     <>
+      <h3>{loggedUser?.name} cars</h3>
       <List carsToRender={loggedUser!.cars}></List>
     </>
   )

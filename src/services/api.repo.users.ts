@@ -47,7 +47,6 @@ export class UserRepo {
       headers: {
         'Content-Type': 'application/json'
       }
-
     })
 
     if (!response.ok) {
@@ -55,5 +54,4 @@ export class UserRepo {
     }
     return response.json()
   }
-
 }

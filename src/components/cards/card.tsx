@@ -3,7 +3,7 @@ import { Car } from "../../entities/car";
 import { makeImageURL } from "../../services/images";
 import { useCars } from "../../hooks/use.cars";
 import { card } from './card.module.scss';
-import { useEffect } from "react";
+
 
 
 type Props = {
@@ -11,11 +11,11 @@ type Props = {
 };
 
 export const Card = ({data}: Props) => {
-  const { handleDetailsPage } = useCars();
+  const { handleDetailsPage, deleteCar } = useCars();
   const carPicture = data && data.picture && makeImageURL(data?.picture.publicId, 150);
 
   const handleDelete = () => {
-
+    deleteCar(data.id);
   }
 
   return (

@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
 import { createCarThunk, deleteCarThunk, loadCarsThunk } from './cars.thunk';
 import { Car } from '../entities/car';
 
@@ -36,6 +35,7 @@ const carsSlice = createSlice({
       state.stateOption = 'loading';
       return state;
     });
+
     builder.addCase(
       loadCarsThunk.fulfilled,
       (state: CarsState
@@ -45,6 +45,7 @@ const carsSlice = createSlice({
         return state;
       }
     );
+
     builder.addCase(loadCarsThunk.rejected, (state: CarsState
       ) => {
       state.stateOption = 'error';
