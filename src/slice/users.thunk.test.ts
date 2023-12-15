@@ -27,19 +27,10 @@ describe('Give user.thunk', () => {
 
   describe('Given user.thunk', () => {
     describe('When an action logout is taken...', () => {
-      const userTest = {
-        repo: {
-          logout: jest.fn().mockResolvedValue('Logout exitoso'),
-        } as unknown as UserRepo,
-      };
-      test('Then it should dispatch logoutThunk and update user store', async () => {
-        const userData = { ...userTest };
-        try {
-          await store.dispatch(logoutThunk());
-          expect(userData).toHaveBeenCalled();
-        } catch (error) {
-          console.error('Error durante el logout:', error);
-        }
+
+      test('logoutThunk should dispatch', async () => {
+        await store.dispatch(logoutThunk());
+        expect(store.getState().userState.loggedUser).toBeNull(); // Verifica si el usuario está nulo después de hacer logout
       });
     });
   });

@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { useUsers } from "../../hooks/use.users";
 import { useNavigate } from 'react-router-dom';
 import { LoginUser } from "../../entities/user";
@@ -22,6 +22,12 @@ export function Login() {
     setHasLogin(true);
     }
 
+    useEffect(() => {
+      if (hasLogin) {
+        navigate('/home/');
+      }
+    }, [hasLogin, navigate]);
+
     return (
       <>
         {!hasLogin && (
@@ -40,7 +46,7 @@ export function Login() {
             </div>
           </form>
         )}
-        {hasLogin && navigate('/home/')}
+        {/* {hasLogin && navigate('/home/')} */}
       </>
       )
   }

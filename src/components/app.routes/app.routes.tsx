@@ -6,7 +6,7 @@ const HomePage = lazy(() => import('../pages/home/home'));
 const LoginPage = lazy(() => import('../pages/login.page'));
 const Details = lazy(() => import('../details/details'));
 const Profile = lazy(() => import('../profile'));
-const AddCar = lazy(() => import('../pages/add.car'))
+const AddCar = lazy(() => import('../add.car/add.car'))
 
 export function AppRoutes() {
   return (

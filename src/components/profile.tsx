@@ -7,7 +7,7 @@ import { List } from "./list/list";
 export default function Profile() {
 
   const { loggedUser } = useSelector((state: RootState) => state.userState);
-  console.log(loggedUser);
+
 
   return(
     <>
