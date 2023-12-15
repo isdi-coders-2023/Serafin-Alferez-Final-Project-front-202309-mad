@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useCars } from './use.cars';
 import { Car } from '../entities/car';
 
+
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),
   useSelector: jest.fn().mockReturnValue({token: 'test'})
@@ -22,6 +23,18 @@ describe('Given useCars hook...', () => {
       loadCars();
       expect(dispatch).toHaveBeenCalled();
   });
+});
+
+describe('When updateCar component is called', () => {
+  const mockId = '';
+  const mockUpdatedCar = {} as FormData;
+  test('Then it should dispatch', async () => {
+    const { result } = renderHook(() => useCars());
+    const {updateCar} = result.current;
+
+    updateCar(mockId, mockUpdatedCar);
+    expect(dispatch).toHaveBeenCalled();
+});
 });
 
 describe('When createCar component is called', () => {
@@ -55,5 +68,4 @@ describe('When deleteCar component is called', () => {
 
     });
   });
-
 });

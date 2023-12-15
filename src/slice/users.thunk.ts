@@ -14,8 +14,8 @@ export const loginThunk = createAsyncThunk<LoginResponse, { loginUser: LoginUser
 );
 
 export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) => {
-  dispatch(logout());
-  return 'Logout exitoso';
+    dispatch(logout());
+    return 'Logout exitoso';
 });
 
 // export const updateUserThunk = createAsyncThunk<

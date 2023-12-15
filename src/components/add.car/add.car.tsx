@@ -18,7 +18,7 @@ export default function AddCar() {
     createCar(formData);
     // updateCurrentUser(loggedUser!.id);
     // console.log('Desde AddCar', loggedUser)   / quitado 15-12
-    navigate('/home/');
+    navigate('/profile/');
   };
     return (
       <>

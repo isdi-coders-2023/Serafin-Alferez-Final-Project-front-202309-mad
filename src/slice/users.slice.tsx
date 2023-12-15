@@ -46,22 +46,40 @@ const usersSlice = createSlice({
       state.loginLoadState = 'error';
     });
 
-    builder.addCase(createCarThunk.fulfilled, (state: UsersState, {payload}:PayloadAction<Car>) => ({
-      ...state,
-      loggedUser: {
-        ...state.loggedUser!,
-        cars: [...state.loggedUser!.cars, payload]
+    // builder.addCase(createCarThunk.fulfilled, (state: UsersState, {payload}:PayloadAction<Car>) => ({
+    //   ...state,
+    //   loggedUser: {
+    //     ...state.loggedUser!,
+    //     cars: [...state.loggedUser!.cars, payload]
+    //   }
+    // }))
+
+    builder.addCase(
+      createCarThunk.fulfilled,
+      (state, { payload }: PayloadAction<Car>) => {
+        if (state.loggedUser) {
+          state.loggedUser.cars = [...state.loggedUser.cars, payload];
+        }
       }
-    }))
+    );
 
     builder.addCase(
       deleteCarThunk.fulfilled,
       (state, { payload }: { payload: Car['id'] }) => {
-        state.loggedUser!.cars = state.loggedUser!.cars.filter((item) => {
-          return item.id !== payload;
-        });
+        if (state.loggedUser) {
+          state.loggedUser.cars = state.loggedUser.cars.filter((item) => {
+            return item.id !== payload;
+          });
+        }
       }
     );
+
+    // builder.addCase(
+    //   deleteCarThunk.fulfilled,
+    //   (state, { payload }: { payload: Car['id'] }) => {
+    //     state.loggedUser!.cars = state.loggedUser!.cars.filter((item) => { return item.id !== payload });
+    //   }
+    // );
   },
 });
 

@@ -21,7 +21,7 @@ export function useCars() {
   };
 
   const updateCar = async (id: Car['id'], updateCar: FormData) => {
-    try {
+    try { 
       dispatch(updateCarsThunk({ id, repo, updateCar }));
     } catch (error) {
       // console.log((error as Error).message);

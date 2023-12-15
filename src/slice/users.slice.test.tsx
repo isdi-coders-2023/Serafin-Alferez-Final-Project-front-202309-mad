@@ -3,11 +3,13 @@ import usersReducer, { UsersState } from './users.slice';
 import { loginThunk } from './users.thunk';
 
 
+
+
 describe('Given userReducer', () => {
   describe('When users/logout actions is dispatch ', () => {
     test('Then the new state will be returned ', async () => {
       const action = { type: 'users/logout'};
-      const state: UsersState = {} as UsersState;
+      const state: UsersState = {loggedUser:{cars:[{id: '123'}]}} as UsersState;
       const result = usersReducer(state, action);
       expect(result.loggedUser).toBe(null);
       expect(result.token).toBe(null);
@@ -39,10 +41,12 @@ describe('Given userReducer', () => {
 
   describe('When users/login/rejected action is dispatch', () => {
     test('Then the new state will be returned ', () => {
-      const action = loginThunk.rejected;  // Usa la acción generada por el thunk cuando es rechazado
+      const action = loginThunk.rejected;
       const state: UsersState = {} as UsersState;
       const result = usersReducer(state, action);
       expect(result.loginLoadState).toBe('error');
     });
   });
+
+
 });
