@@ -9,7 +9,7 @@ import { setCurrentCar } from "../slice/cars.slice";
 export function useCars() {
   const dispatch = useDispatch<AppDispatch>();
   const { token } = useSelector((state: RootState) => state.userState);
-  const { cars } = useSelector((state: RootState) => state.carsState);
+  const { cars, currentCar } = useSelector((state: RootState) => state.carsState);
   const repo = useMemo(() => new CarsRepo(token!), [token]);
 
   const loadCars = useCallback(async () => {
@@ -27,6 +27,7 @@ export function useCars() {
       // console.log((error as Error).message);
     }
   };
+
 
   const createCar = async (newCar: FormData) => {
       dispatch(
@@ -52,7 +53,7 @@ export function useCars() {
     createCar,
     deleteCar,
     updateCar,
+    currentCar,
     cars,
-    
   };
 }
