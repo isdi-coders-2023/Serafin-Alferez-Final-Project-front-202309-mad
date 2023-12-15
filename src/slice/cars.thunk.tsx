@@ -32,3 +32,15 @@ export const deleteCarThunk = createAsyncThunk<Car['id'],
   await repo.deleteCar(id);
   return id;
 });
+
+export const updateCarsThunk = createAsyncThunk<
+  Car,
+  {
+    repo: CarsRepo;
+    id: Car['id'];
+    updateCar: FormData;
+  }
+>('update', async ({ repo, id, updateCar }) => {
+  const finalCar = await repo.updateCar(id, updateCar);
+  return finalCar;
+});

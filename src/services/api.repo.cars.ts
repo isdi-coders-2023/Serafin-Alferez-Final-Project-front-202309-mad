@@ -38,4 +38,18 @@ export class CarsRepo {
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
   }
+
+  async updateCar(id: string, updatedCar: FormData): Promise<Car> {
+    const finalUrl = `${this.apiUrl}/${id}`;
+    const response = await fetch(finalUrl, {
+      method: 'PATCH',
+      body: updatedCar,
+      headers: {
+        Authorization: 'Bearer ' + this.token,
+      },
+    });
+    if (!response.ok)
+      throw new Error(response.status + ' ' + response.statusText);
+    return response.json();
+  }
 }
