@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { LoginResponse } from '../types/login.response';
-import { LoginUser, User } from '../entities/user';
+import { LoginUser, /*User*/ } from '../entities/user';
 import { UserRepo } from '../services/api.repo.users';
 import { logout } from './users.slice';
 
@@ -18,11 +18,11 @@ export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) =>
   return 'Logout exitoso';
 });
 
-export const updateUserThunk = createAsyncThunk<
-  User,
-  { repo: UserRepo; id: string }
->('product/load', async ({ repo, id }) => {
-  const result = await repo.getUpdatedUserById(id);
-  return result;
-});
+// export const updateUserThunk = createAsyncThunk<
+//   User,
+//   { repo: UserRepo; id: string }
+// >('product/load', async ({ repo, id }) => {
+//   const result = await repo.getUpdatedUserById(id);
+//   return result;
+// });      // quitado 15-12
 
