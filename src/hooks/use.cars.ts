@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CarsRepo } from "../services/api.repo.cars";
 import { useCallback, useMemo } from "react";
 import { AppDispatch, RootState } from "../store/store";
-import { createCarThunk, deleteCarThunk, loadCarsThunk, updateCarsThunk } from "../slice/cars.thunk";
+import { createCarThunk, deleteCarThunk, loadCarsThunk, loadCarsByPageThunk, updateCarsThunk } from "../slice/cars.thunk";
 import { Car } from "../entities/car";
 import { setCurrentCar } from "../slice/cars.slice";
 
@@ -15,6 +15,10 @@ export function useCars() {
   const loadCars = useCallback(async () => {
       dispatch(loadCarsThunk(repo));
   }, [repo, dispatch]);
+
+  const loadCarsByPage = useCallback(async (pageNumber: string) => {
+    dispatch(loadCarsByPageThunk({repo, pageNumber}));
+}, [repo, dispatch]);
 
   const handleDetailsPage = async (car: Car) => {
     dispatch(setCurrentCar(car));
@@ -49,6 +53,7 @@ export function useCars() {
 
   return {
     loadCars,
+    loadCarsByPage,
     handleDetailsPage,
     createCar,
     deleteCar,

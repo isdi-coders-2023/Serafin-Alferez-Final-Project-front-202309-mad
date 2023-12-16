@@ -25,11 +25,11 @@ export default function Details() {
             <div className="card-year">
               <p className="card-year">{currentCar?.year}</p>
             </div>
+            <div className="card-info">
+              <p className="card-info">{currentCar?.info}</p>
+            </div>
         </div>
       </div>
-    
-    
     </>
   )
-
 }

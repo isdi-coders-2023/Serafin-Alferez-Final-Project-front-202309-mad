@@ -13,6 +13,13 @@ export class CarsRepo {
     return response.json();
   }
 
+  async getCarsByPage(pageNumber: string): Promise<Car[]> {
+    const response = await fetch(this.apiUrl + `/page/${pageNumber}`);
+    if (!response.ok)
+      throw new Error(response.status + ' ' + response.statusText);
+    return response.json();
+  }
+
   async createCar(newCar: FormData): Promise<Car> {
     const url = this.apiUrl;
     const response = await fetch(url, {

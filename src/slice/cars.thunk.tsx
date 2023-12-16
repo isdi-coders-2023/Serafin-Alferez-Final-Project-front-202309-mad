@@ -7,6 +7,11 @@ type Params = {
   newCar: FormData;
 }
 
+type Params2 = {
+  repo: CarsRepo;
+  pageNumber: string;
+}
+
 export const loadCarsThunk = createAsyncThunk<Car[], CarsRepo>(
   'load',
   async (repo) => {
@@ -14,6 +19,14 @@ export const loadCarsThunk = createAsyncThunk<Car[], CarsRepo>(
     return cars;
   }
 );
+
+export const loadCarsByPageThunk = createAsyncThunk<Car[], Params2>(
+  'load',
+  async ({repo, pageNumber}) => {
+    const cars = await repo.getCarsByPage(pageNumber);
+    return cars;
+  }
+)
 
 export const createCarThunk = createAsyncThunk<Car, Params>(
   'create',
