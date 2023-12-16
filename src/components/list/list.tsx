@@ -3,27 +3,27 @@ import { useEffect } from "react";
 import { Card } from "../cards/card";
 import { Car } from "../../entities/car";
 import './list.css'
-import { useParams } from "react-router-dom";
-
-// type Props = {
-//   carsToRender: Car[] | undefined
-// };
+import { useParams, useNavigate } from "react-router-dom";
 
 export function List() {
-  const { loadCars, loadCarsByPage, cars } = useCars();
+  const navigate = useNavigate()
+  const { loadCarsByPage, cars } = useCars();
 
   const { page } = useParams();
- console.log(page)
 
+  const goToNextPage = ()=>{
+    const newPage = Number(page!) + 1
+    navigate(`/home/page/${newPage}`)
+  }
 
-  // esto lo estabamos utilizando antes pero parece que no hace falta--> carUpdateState
+  const goToPreviousPage = ()=>{
+    const newPage = Number(page!) - 1
+    navigate(`/home/page/${newPage}`)
+  }
+
   useEffect(() => {
-    if(!page){
-      loadCars();
-    } else{
-      loadCarsByPage(page)
-    }
-  }, [loadCars, loadCarsByPage, page]);
+    loadCarsByPage(page!)
+  }, [loadCarsByPage, page]);
 
   return (
     <>
@@ -32,6 +32,8 @@ export function List() {
           <Card key={item.id} data={item}></Card>
         ))}
       </ul>
+      {Number(page!) > 1 && <button onClick={goToPreviousPage}> Go to previous page</button>}
+      {cars.length > 0 ? <button onClick={goToNextPage}> Go to next page</button> : <p>No more cars to show</p>}
     </>
   );
 }

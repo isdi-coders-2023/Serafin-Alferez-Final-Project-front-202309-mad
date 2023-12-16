@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 
 const RegisterPage = lazy(() => import('../pages/register.page'));
@@ -19,8 +19,8 @@ export function AppRoutes() {
           <Route path="/register" element={<RegisterPage></RegisterPage>}></Route>
           <Route path="/login" element={<LoginPage></LoginPage>}></Route>
           <Route path="/home/page/:page" element={<HomePage></HomePage>}></Route>
-          <Route path="/home" element={<HomePage></HomePage>}></Route>
-          {/* <Route path="/home" element={<Redirect to="/home/page/1" />}></Route> */}
+          <Route path="/" element={<Navigate to="/home/page/1" />}></Route>
+          <Route path="/home" element={<Navigate to="/home/page/1" />}></Route>
           <Route path="/profile" element={<Profile></Profile>}></Route>
           <Route path="/details/:id" element={<Details></Details>}></Route>
           <Route path="/addcar" element={<AddCar></AddCar>}></Route>

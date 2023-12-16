@@ -18,7 +18,7 @@ export function useCars() {
 
   const loadCarsByPage = useCallback(async (pageNumber: string) => {
     dispatch(loadCarsByPageThunk({repo, pageNumber}));
-}, [repo, dispatch]);
+  }, [repo, dispatch]);
 
   const handleDetailsPage = async (car: Car) => {
     dispatch(setCurrentCar(car));
