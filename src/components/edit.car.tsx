@@ -34,7 +34,7 @@ export default function EditCar () {
   }, [carUpdateState]);
 
   const handleInputChangeCar = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
     setCar((prevState) => ({
@@ -57,7 +57,7 @@ export default function EditCar () {
         </div>
         <div className="add-car-form">
           <form onSubmit={handleUpdateCar} action="" aria-label="form">
-            <label htmlFor="make">
+            {/* <label htmlFor="make">
               Make
               <input
               type="text"
@@ -67,8 +67,8 @@ export default function EditCar () {
               onChange={handleInputChangeCar}
               required
             />
-          </label>
-              {/* <select name="make" id="make" required>
+          </label> */}
+              <select name="make" id="make" value={findCar?.make} onChange={handleInputChangeCar} required>
                 <option value="alfa romeo">Alfa Romeo</option>
                 <option value="aston martin">Aston Martin</option>
                 <option value="audi">Audi</option>
@@ -88,9 +88,10 @@ export default function EditCar () {
                 <option value="morgan">Morgan</option>
                 <option value="peugeot">Peugeot</option>
                 <option value="porsche">Porsche</option>
+                <option value="renault">Renault</option>
                 <option value="seat">Seat</option>
                 <option value="volkswagen">Volkswagen</option>
-              </select> */}
+              </select>
             <label htmlFor="model">
               Model
               <input
@@ -123,6 +124,8 @@ export default function EditCar () {
                 onChange={handleInputChangeCar}
                 required
               />
+            <label htmlFor="info">Description</label>
+               <textarea name="info" id="info" value={findCar?.info} onChange={handleInputChangeCar} cols={30} rows={5}></textarea>
             </label>
               <div className="add-file" id="add-file">
                 <input type="file" name="picture" aria-label="file"/>

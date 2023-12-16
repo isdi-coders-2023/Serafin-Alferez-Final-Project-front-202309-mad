@@ -29,9 +29,14 @@ export default function Profile() {
   return(
     <>
       <h3>{loggedUser?.name} cars</h3>
-      {userCars.map((item: Car) => (
-        <Card key={item.id} data={item}></Card>
-      ))}
+      {userCars.length > 0 ? (
+        userCars.map((item: Car) => <Card key={item.id} data={item}></Card>)
+      ) : (
+        <>
+          <p>{loggedUser?.name} Vaya! aún no tienes ningún coche</p>
+          <img src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_200/v1702754778/FP%20icons/mario_tp0wke.png" alt="" />
+        </>
+      )}
       {/* <List carsToRender={loggedUser!.cars}></List> */}
     </>
   )

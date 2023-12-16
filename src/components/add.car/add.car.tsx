@@ -18,7 +18,7 @@ export default function AddCar() {
     createCar(formData);
     // updateCurrentUser(loggedUser!.id);
     // console.log('Desde AddCar', loggedUser)   / quitado 15-12
-    navigate('/profile/');
+    navigate('/home/');
   };
     return (
       <>
@@ -28,8 +28,8 @@ export default function AddCar() {
         <div className="add-car-form">
           <form onSubmit={handleCreateCar} action="">
             <label htmlFor="make">Make</label>
-            <input type="text" name="make"/>
-              {/* <select name="make" id="make" required>
+            {/* <input type="text" name="make"/> */}
+              <select name="make" id="make" required>
                 <option value="alfa romeo">Alfa Romeo</option>
                 <option value="aston martin">Aston Martin</option>
                 <option value="audi">Audi</option>
@@ -49,17 +49,18 @@ export default function AddCar() {
                 <option value="morgan">Morgan</option>
                 <option value="peugeot">Peugeot</option>
                 <option value="porsche">Porsche</option>
+                <option value="renault">Renault</option>
                 <option value="seat">Seat</option>
                 <option value="volkswagen">Volkswagen</option>
-              </select> */}
+              </select>
               <label htmlFor="model">Model</label>
                 <input type="text" name="model" required/>
               <label htmlFor="year">Year</label>
                 <input type="text" name="year" />
               <label htmlFor="color">Color</label>
                 <input type="text" name="color" />
-              {/* <label htmlFor="description">Description</label>
-               <textarea name="description" id="description" cols={30} rows={5}></textarea> */}
+              <label htmlFor="info">Description</label>
+               <textarea name="info" id="info" cols={30} rows={5}></textarea>
               <div className="add-file" id="add-file">
                 <input type="file" name="picture" aria-label="file"/>
               </div>

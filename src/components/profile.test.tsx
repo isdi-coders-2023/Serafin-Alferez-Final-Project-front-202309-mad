@@ -21,7 +21,7 @@ describe('Given List Component', () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <List carsToRender={undefined} />
+            <List/>
           </Provider>
         </BrowserRouter>
       );
