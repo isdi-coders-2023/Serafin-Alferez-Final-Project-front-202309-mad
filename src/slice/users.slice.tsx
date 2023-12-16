@@ -8,13 +8,13 @@ import { Car } from '../entities/car';
 
 type LoginState = 'idle' | 'logging' | 'error';
 
-export type UsersState = {
+ export type UsersState = {
   loggedUser: User | null;
   loginLoadState: LoginState;
   token: string | null;
 };
 
-const initialState: UsersState = {
+ export const initialState: UsersState = {
   loggedUser: null,
   loginLoadState: 'idle',
   token: '',
@@ -74,15 +74,11 @@ const usersSlice = createSlice({
       }
     );
 
-    // builder.addCase(
-    //   deleteCarThunk.fulfilled,
-    //   (state, { payload }: { payload: Car['id'] }) => {
-    //     state.loggedUser!.cars = state.loggedUser!.cars.filter((item) => { return item.id !== payload });
-    //   }
-    // );
   },
 });
 
 export default usersSlice.reducer;
 export const ac = usersSlice.actions;
 export const { logout } = usersSlice.actions;
+
+

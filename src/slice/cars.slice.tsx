@@ -7,6 +7,7 @@ export type CarsState
   cars: Car[];
   stateOption: 'idle' | 'loading' | 'error';
   currentCar: Car | null;
+  carUpdateState: 'idle' | 'loading';
 };
 
 const initialState: CarsState
@@ -14,6 +15,7 @@ const initialState: CarsState
   cars: [],
   stateOption: 'idle',
   currentCar: null,
+  carUpdateState: 'idle'
 };
 
 const carsSlice = createSlice({
@@ -74,11 +76,21 @@ const carsSlice = createSlice({
     builder.addCase(
       updateCarsThunk.fulfilled,
       (state: CarsState, { payload }: PayloadAction<Car>) => {
-        state.cars[state.cars.findIndex((item) => item.id === payload.id)] =
-          payload;
+        const findCar =
+          state.cars[
+            state.cars.findIndex((item) => item.id === payload.id)
+          ];
+        state.carUpdateState = 'idle';
+        state.currentCar = findCar;
+        
         return state;
       }
     );
+
+    builder.addCase(updateCarsThunk.pending, (state: CarsState) => {
+      state.carUpdateState = 'loading';
+      return state;
+    });
   },
 });
 

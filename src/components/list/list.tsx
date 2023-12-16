@@ -9,11 +9,11 @@ type Props = {
 };
 
 export function List({carsToRender}: Props) {
-  const { loadCars } = useCars();
+  const { loadCars, carUpdateState } = useCars();
 
   useEffect(() => {
     loadCars();
-  }, [loadCars]);
+  }, [carUpdateState]);
 
   return (
     <>

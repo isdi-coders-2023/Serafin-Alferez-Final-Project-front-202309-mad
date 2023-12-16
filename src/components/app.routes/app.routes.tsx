@@ -7,6 +7,7 @@ const LoginPage = lazy(() => import('../pages/login.page'));
 const Details = lazy(() => import('../details/details'));
 const Profile = lazy(() => import('../profile'));
 const AddCar = lazy(() => import('../add.car/add.car'))
+const EditCar = lazy(() => import('../edit.car'))
 
 export function AppRoutes() {
   return (
@@ -20,6 +21,7 @@ export function AppRoutes() {
           <Route path="/profile" element={<Profile></Profile>}></Route>
           <Route path="/details/:id" element={<Details></Details>}></Route>
           <Route path="/addcar" element={<AddCar></AddCar>}></Route>
+          <Route path="/edit/:id" element={<EditCar></EditCar>}></Route>
         </Routes>
       </Suspense>
     </main>

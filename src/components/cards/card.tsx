@@ -3,6 +3,7 @@ import { Car } from "../../entities/car";
 import { makeImageURL } from "../../services/images";
 import { useCars } from "../../hooks/use.cars";
 import { card } from './card.module.scss';
+import  EditCar from "../edit.car";
 
 
 
@@ -19,20 +20,37 @@ export const Card = ({data}: Props) => {
     deleteCar(data.id);
   }
 
+  const handleUpdate = () => {
+    return (
+      <EditCar></EditCar>
+    )
+  }
+
   const isProfileRoute = location.pathname === '/profile/';
 
   return (
     <>
       {isProfileRoute && (
-        <div className="delete-button-container">
+        <><div className="delete-button-container">
           <img
             onClick={handleDelete}
             role="button"
             className=""
             src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_20/v1702548355/FP%20icons/delete_icon_bab1eq.png"
-            alt="Delete image"
-          />
-        </div>
+            alt="Delete icon" />
+        </div><div className="update-button-container">
+            <Link
+              to={'/edit/' + data.id}
+              style={{ textDecoration: 'none' }}
+            >
+            <img
+              onClick={handleUpdate}
+              role="button"
+              className=""
+              src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_20/v1702548350/FP%20icons/edit_icon_z9fqvn.png"
+              alt="Update icon" />
+            </Link>
+          </div></>
       )}
       <div className={card}>
         <Link
