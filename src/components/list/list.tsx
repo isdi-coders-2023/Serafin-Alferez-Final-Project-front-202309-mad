@@ -4,12 +4,12 @@ import { Card } from "../cards/card";
 import { Car } from "../../entities/car";
 import './list.css'
 
-type Props = {
-  carsToRender: Car[] | undefined
-};
+// type Props = {
+//   carsToRender: Car[] | undefined
+// };
 
-export function List({carsToRender}: Props) {
-  const { loadCars, carUpdateState } = useCars();
+export function List() {
+  const { loadCars, carUpdateState, cars } = useCars();
 
   useEffect(() => {
     loadCars();
@@ -18,7 +18,7 @@ export function List({carsToRender}: Props) {
   return (
     <>
       <ul className="cars-list">
-        {carsToRender?.map((item: Car) => (
+        {cars.map((item: Car) => (
           <Card key={item.id} data={item}></Card>
         ))}
       </ul>

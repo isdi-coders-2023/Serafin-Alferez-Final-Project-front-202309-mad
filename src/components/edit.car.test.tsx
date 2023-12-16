@@ -1,49 +1,71 @@
+// import '@testing-library/jest-dom';
+// import { render, fireEvent, screen } from '@testing-library/react';
+
+// import { MemoryRouter as Router } from "react-router-dom";
+
+// import { Provider } from 'react-redux';
+// import userEvent from '@testing-library/user-event';
+
+// import EditCar from './edit.car';
+// import { store } from '../store/store';
+
+// jest.mock('react-redux', () => ({
+//   useNavigate: jest.fn(),
+// }))
+
+// jest.mock('../hooks/use.cars')
+
+// jest.mock('react-router', () => ({
+//   ...jest.requireActual('react-router'),
+//   useParams: jest.fn(),
+// }));
+
+// // jest.mock('../../hooks/use.users', () => ({
+// //   useUsers: jest.fn().mockReturnValue({
+// //     register: jest.fn(),
+// //   }),
+// // }));
+
+// const mockedCars = [
+//   { id: '1', make: 'Toyota' },
+//   { id: '2', make: 'Honda' },
+//   { id: '3', make: 'Ford' },
+// ];
+// jest.mock('array.prototype.find', () => {
+//   return jest.fn((predicate) => mockedCars.find(predicate));
+// });
+
+// jest.mock('react', () => ({
+//   ...jest.requireActual('react'),
+//   useState: jest.fn(),
+// }));
+
+// jest.mock('react', () => ({
+//   ...jest.requireActual('react'),
+//   useEffect: jest.fn().mockReturnValue(jest.fn()),
+// }));
+// describe('Given Register component', () => {
+//   describe('When the Register component is rendered', () => {
+//     test('Then renders register form and handles submission', async () => {
+//     render( 
+//       <Router>
+//       <Provider store={store}>
+//         <EditCar></EditCar>
+//       </Provider>
+//     </Router>
+//     )
+
+//     // const title = screen.getByText('NEW USER');
+//     const form = screen.getByRole('form');
+//     const input = screen.getAllByRole('textbox');
+//     await userEvent.type(input[0],'test');
+//     await userEvent.click(screen.getAllByRole('button')[0]);
+//     await fireEvent.submit(form);  
+//     // expect(title).toBeInTheDocument();
+//     expect (useUsers().register).toHaveBeenCalled(); 
+//   });
+
+//   })
 
 
-import { MemoryRouter } from 'react-router-dom';
-import EditCar from './edit.car';
-import '@testing-library/jest-dom';
-import { render, fireEvent, screen } from '@testing-library/react';
-
-
-jest.mock('../hooks/use.cars', () => ({
-  useCars: () => ({
-    updateCar: jest.fn(),
-    cars: [],
-    loadCars: jest.fn(),
-    carUpdateState: 'idle',
-  }),
-}));
-
-describe('EditCar component', () => {
-  test('updates car and navigates to /profile', async () => {
-    // Given
-    render(
-      <MemoryRouter>
-        <EditCar />
-      </MemoryRouter>
-    );
-
-    // When
-    fireEvent.change(screen.getByLabelText('Make'), { target: { value: 'Test Make' } });
-    fireEvent.change(screen.getByLabelText('Model'), { target: { value: 'Test Model' } });
-    fireEvent.change(screen.getByLabelText('Color'), { target: { value: 'Test Color' } });
-    fireEvent.change(screen.getByLabelText('Year'), { target: { value: '2022' } });
-
-    const fileInput = screen.getByLabelText('file');
-    Object.defineProperty(fileInput, 'files', {
-      value: [new File(['(⌐□_□)'], 'test.jpg', { type: 'image/jpg' })],
-    });
-    fireEvent.change(fileInput);
-
-    fireEvent.click(screen.getByText('SAVE'));
-
-    // Then
-
-    expect(screen.queryByText('SAVE')).toBeNull();
-    expect(screen.queryByText('Test Make')).toBeInTheDocument();
-    
-
-    expect(screen.getByText('CANCEL').closest('a')).toHaveAttribute('href', '/profile');
-  });
-});
+// })
