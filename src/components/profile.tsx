@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 export default function Profile() {
 
-  const { loggedUser,  } = useSelector((state: RootState) => state.userState);
+  const { loggedUser } = useSelector((state: RootState) => state.userState);
   
   const {
     

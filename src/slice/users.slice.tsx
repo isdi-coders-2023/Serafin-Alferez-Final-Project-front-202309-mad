@@ -6,6 +6,7 @@ import { LoginResponse } from '../types/login.response';
 import { createCarThunk, deleteCarThunk } from './cars.thunk';
 import { Car } from '../entities/car';
 
+
 type LoginState = 'idle' | 'logging' | 'error';
 
  export type UsersState = {
@@ -73,6 +74,7 @@ const usersSlice = createSlice({
         }
       }
     );
+
 
   },
 });

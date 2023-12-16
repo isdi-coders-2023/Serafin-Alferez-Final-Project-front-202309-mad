@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation,/* useNavigate */} from "react-router-dom";
 import { Car } from "../../entities/car";
 import { makeImageURL } from "../../services/images";
 import { useCars } from "../../hooks/use.cars";
@@ -12,6 +12,7 @@ type Props = {
 };
 
 export const Card = ({data}: Props) => {
+  // const navigate = useNavigate();
   const { handleDetailsPage, deleteCar } = useCars();
   const carPicture = data && data.picture && makeImageURL(data?.picture.publicId, 150);
   const location = useLocation();
@@ -23,6 +24,7 @@ export const Card = ({data}: Props) => {
   const handleUpdate = () => {
     return (
       <EditCar></EditCar>
+      // navigate('/edit/' + data.id)
     )
   }
 

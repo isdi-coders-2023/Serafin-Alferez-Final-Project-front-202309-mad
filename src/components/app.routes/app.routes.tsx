@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
+
 const RegisterPage = lazy(() => import('../pages/register.page'));
 const HomePage = lazy(() => import('../pages/home/home'));
 const LoginPage = lazy(() => import('../pages/login.page'));
@@ -8,6 +9,7 @@ const Details = lazy(() => import('../details/details'));
 const Profile = lazy(() => import('../profile'));
 const AddCar = lazy(() => import('../add.car/add.car'))
 const EditCar = lazy(() => import('../edit.car'))
+const ErrorPage = lazy(() => import('../pages/error.page'))
 
 export function AppRoutes() {
   return (
@@ -22,6 +24,7 @@ export function AppRoutes() {
           <Route path="/details/:id" element={<Details></Details>}></Route>
           <Route path="/addcar" element={<AddCar></AddCar>}></Route>
           <Route path="/edit/:id" element={<EditCar></EditCar>}></Route>
+          <Route path="/error" element={<ErrorPage></ErrorPage>}></Route>
         </Routes>
       </Suspense>
     </main>

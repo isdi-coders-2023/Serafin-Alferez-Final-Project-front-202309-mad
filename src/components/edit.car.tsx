@@ -16,11 +16,11 @@ export default function EditCar () {
   } = useCars();
 
   const { id } = useParams();
-  const findedCar = cars.find(
+  const foundCar = cars.find(
     (car) => car.id === id
   );
 
-  const [findCar, setCar] = useState(findedCar);
+  const [findCar, setCar] = useState(foundCar);
 
   useEffect(() => {
     if (findCar) {
@@ -56,7 +56,7 @@ export default function EditCar () {
           <h3>ADD NEW CAR</h3>
         </div>
         <div className="add-car-form">
-          <form onSubmit={handleUpdateCar} action="">
+          <form onSubmit={handleUpdateCar} action="" aria-label="form">
             <label htmlFor="make">
               Make
               <input
