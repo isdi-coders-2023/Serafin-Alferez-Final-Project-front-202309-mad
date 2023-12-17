@@ -56,7 +56,7 @@ export default function EditCar () {
           <h3>ADD NEW CAR</h3>
         </div>
         <div className="add-car-form">
-          <form onSubmit={handleUpdateCar} action="" aria-label="form">
+          <form onSubmit={handleUpdateCar} action="" role="form">
             {/* <label htmlFor="make">
               Make
               <input
@@ -68,7 +68,7 @@ export default function EditCar () {
               required
             />
           </label> */}
-              <select name="make" id="make" value={findCar?.make} onChange={handleInputChangeCar} required>
+              <select data-testid='select' name="make" id="make" value={findCar?.make} onChange={handleInputChangeCar} required>
                 <option value="alfa romeo">Alfa Romeo</option>
                 <option value="aston martin">Aston Martin</option>
                 <option value="audi">Audi</option>

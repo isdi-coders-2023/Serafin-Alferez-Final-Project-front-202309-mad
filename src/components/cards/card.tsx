@@ -58,10 +58,10 @@ export const Card = ({data}: Props) => {
         <Link
           to={'/details/' + data.id}
           style={{ textDecoration: 'none' }}
-        >
+          data-testid='button'>
           <article>
             <figure>
-              <img
+              <img data-testid='img'
                 src={carPicture}
                 alt={`imagen de ${data.make}`}
                 onClick={() => handleDetailsPage(data)}
@@ -75,7 +75,7 @@ export const Card = ({data}: Props) => {
             <p className="card-make">{data.make}</p>
           </div>
           <div className="card-year">
-            <p className="card-yaer">{data.year}</p>
+            <p className="card-year">{data.year}</p>
           </div>
         </div>
       </div>
