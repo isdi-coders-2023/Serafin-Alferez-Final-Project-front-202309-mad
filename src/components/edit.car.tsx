@@ -125,7 +125,7 @@ export default function EditCar () {
                 required
               />
             <label htmlFor="info">Description</label>
-               <textarea name="info" id="info" value={findCar?.info} onChange={handleInputChangeCar} cols={30} rows={5}></textarea>
+                <textarea name="info" id="info" value={findCar?.info} onChange={handleInputChangeCar} cols={30} rows={5}></textarea>
             </label>
               <div className="add-file" id="add-file">
                 <input type="file" name="picture" aria-label="file"/>
@@ -141,4 +141,3 @@ export default function EditCar () {
     </>
   );
 }
-

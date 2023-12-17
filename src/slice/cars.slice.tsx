@@ -2,16 +2,14 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { createCarThunk, deleteCarThunk, loadCarsThunk, updateCarsThunk } from './cars.thunk';
 import { Car } from '../entities/car';
 
-export type CarsState
- = {
+export type CarsState = {
   cars: Car[];
   stateOption: 'idle' | 'loading' | 'error';
   currentCar: Car | null;
   carUpdateState: 'idle' | 'loading';
 };
 
-const initialState: CarsState
- = {
+const initialState: CarsState = {
   cars: [],
   stateOption: 'idle',
   currentCar: null,

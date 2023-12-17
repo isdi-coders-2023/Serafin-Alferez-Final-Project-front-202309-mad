@@ -38,4 +38,3 @@ describe('Given login component...', () => {
     expect(useUsers().login).toHaveBeenCalled();
   });
 });
-

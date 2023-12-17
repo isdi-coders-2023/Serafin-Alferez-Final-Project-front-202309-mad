@@ -25,4 +25,3 @@ export const logoutThunk = createAsyncThunk('logout', async (_, { dispatch }) =>
 //   const result = await repo.getUpdatedUserById(id);
 //   return result;
 // });      // quitado 15-12
-

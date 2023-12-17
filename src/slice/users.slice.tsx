@@ -9,17 +9,17 @@ import { Car } from '../entities/car';
 
 type LoginState = 'idle' | 'logging' | 'error';
 
- export type UsersState = {
-  loggedUser: User | null;
-  loginLoadState: LoginState;
-  token: string | null;
-};
+  export type UsersState = {
+    loggedUser: User | null;
+    loginLoadState: LoginState;
+    token: string | null;
+  };
 
- export const initialState: UsersState = {
-  loggedUser: null,
-  loginLoadState: 'idle',
-  token: '',
-};
+  export const initialState: UsersState = {
+    loggedUser: null,
+    loginLoadState: 'idle',
+    token: '',
+  };
 
 const usersSlice = createSlice({
   name: 'users',
@@ -82,5 +82,3 @@ const usersSlice = createSlice({
 export default usersSlice.reducer;
 export const ac = usersSlice.actions;
 export const { logout } = usersSlice.actions;
-
-

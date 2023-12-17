@@ -60,7 +60,7 @@ export default function AddCar() {
               <label htmlFor="color">Color</label>
                 <input type="text" name="color" />
               <label htmlFor="info">Description</label>
-               <textarea name="info" id="info" cols={30} rows={5}></textarea>
+              <textarea name="info" id="info" cols={30} rows={5}></textarea>
               <div className="add-file" id="add-file">
                 <input type="file" name="picture" aria-label="file"/>
               </div>
@@ -75,4 +75,3 @@ export default function AddCar() {
     </>
   );
 }
-
