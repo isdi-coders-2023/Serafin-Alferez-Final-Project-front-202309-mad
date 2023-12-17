@@ -1,11 +1,12 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { useUsers } from "../../hooks/use.users";
+import { useNavigate } from 'react-router-dom';
 import { LoginUser } from "../../entities/user";
 import { Link } from "react-router-dom";
 
 
-
 export function Login() {
+  const navigate = useNavigate();
   const [hasLogin, setHasLogin] = useState(false)
   const { login } = useUsers();
 
@@ -20,6 +21,12 @@ export function Login() {
     login(loginUser);
     setHasLogin(true);
     }
+
+    useEffect(() => {
+      if (hasLogin) {
+        navigate('/home/');
+      }
+    }, [hasLogin, navigate]);
 
     return (
       <>
@@ -39,14 +46,7 @@ export function Login() {
             </div>
           </form>
         )}
-        {hasLogin && (
-          <div>
-            <p>SUCESS</p>
-            <Link to={'/home/'}>
-              <button type="button">HOME</button>
-            </Link>
-          </div>
-        )}
+        {/* {hasLogin && navigate('/home/')} */}
       </>
       )
   }

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from './components/app/App.tsx';
-import { store } from './store/store.ts';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { store } from './store/store';
+import { App } from './components/app/App';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

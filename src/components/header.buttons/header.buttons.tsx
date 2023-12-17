@@ -3,12 +3,17 @@ import { RootState } from "../../store/store";
 
 import { LogoutButton } from "../logout.button/logout";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AddCarButton } from "../add.car.button/add.car.button";
 
 
 export function HeaderButtons() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { loggedUser } = useSelector((state: RootState) => state.userState);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isProfilePage = location.pathname === '/profile/';
 
   return (
     <div>
@@ -25,8 +30,10 @@ export function HeaderButtons() {
       )}
       {loggedUser && (
         <>
+          <AddCarButton></AddCarButton>
           <LogoutButton></LogoutButton>
-          <p>Hola {loggedUser.name}</p>
+          <p>Hola de nuevo {loggedUser.name}</p>
+          {!isProfilePage && <button onClick={() => navigate('/profile/')}>MY LIST</button>}
         </>
       )}
     </div>
