@@ -1,16 +1,17 @@
+
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from '../store/store';
 import { Car } from '../entities/car';
-import { List } from "./list/List";
+
 import { useCars } from '../hooks/use.cars';
+import Profile from './profile.tsx';
 
 jest.mock('../hooks/use.cars.ts', () => ({
   useCars: jest.fn().mockReturnValue({
     loadCars: jest.fn(),
-    loadCarsByPage: jest.fn(),
     cars: [],
   }),
 }));
@@ -21,7 +22,7 @@ describe('Given List Component', () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <List />
+            <Profile />
           </Provider>
         </BrowserRouter>
       );
@@ -30,7 +31,7 @@ describe('Given List Component', () => {
     test('Then should render each car item', async () => {
       // Esperar a que la carga de autos se complete
       await waitFor(() => {
-        expect(useCars().loadCarsByPage).toHaveBeenCalled();
+        expect(useCars().loadCars).toHaveBeenCalled();
       });
 
       useCars().cars.forEach((car: Car) => {
