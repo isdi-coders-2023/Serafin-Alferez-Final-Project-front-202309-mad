@@ -1,5 +1,7 @@
 // import { RootState } from "../../../store/store";
-import { List } from "../../list/List";
+
+import { List } from "../list";
+
 // import { useSelector } from "react-redux";
 
 export default function HomePage() {

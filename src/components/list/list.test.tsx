@@ -4,11 +4,12 @@ import { Provider } from 'react-redux';
 import { Route, MemoryRouter as Router, Routes } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import { store } from '../../store/store';
-import { List } from "./List";
+
 import { useCars } from '../../hooks/use.cars';
 import { User } from '../../entities/user';
 import { ImgData } from '../../entities/img.data';
 import userEvent from '@testing-library/user-event';
+import { List } from '../pages/list';
 
 
 jest.mock('../../hooks/use.cars', () => ({
