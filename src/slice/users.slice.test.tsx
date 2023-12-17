@@ -1,9 +1,7 @@
+
 import '@testing-library/jest-dom';
 import usersReducer, { UsersState } from './users.slice';
 import { loginThunk } from './users.thunk';
-
-
-
 
 describe('Given userReducer', () => {
   describe('When users/logout actions is dispatch ', () => {

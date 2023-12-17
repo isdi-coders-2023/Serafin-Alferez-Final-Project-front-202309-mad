@@ -48,7 +48,7 @@ export default function EditCar () {
     const element = event.target as HTMLFormElement;
     const formData = new FormData(element);
     updateCar(findCar!.id, formData);
-    navigate('/profile');
+    navigate('/profile/');
   };
     return (
       <>

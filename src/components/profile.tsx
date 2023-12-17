@@ -14,7 +14,6 @@ export default function Profile() {
   const { cars } = useCars();
   
   const {
-    
     loadCars,
     carUpdateState
   } = useCars();
@@ -34,7 +33,7 @@ export default function Profile() {
       ) : (
         <>
           <p>{loggedUser?.name} Vaya! aún no tienes ningún coche</p>
-          <img src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_200/v1702754778/FP%20icons/mario_tp0wke.png" alt="" />
+          {/* <img src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_200/v1702754778/FP%20icons/mario_tp0wke.png" alt="" /> */}
         </>
       )}
       {/* <List carsToRender={loggedUser!.cars}></List> */}

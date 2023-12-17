@@ -82,25 +82,37 @@ const carsSlice = createSlice({
     builder.addCase(
       updateCarsThunk.fulfilled,
       (state: CarsState, { payload }: PayloadAction<Car>) => {
-        const findCar =
-          state.cars[
-            state.cars.findIndex((item) => item.id === payload.id)
-          ];
+        const findCar = state.cars.findIndex(
+          (item) => item.id === payload.id
+        );
+        if (findCar !== -1) {
+
+          state.cars[findCar] = payload;
+          if (state.currentCar && state.currentCar.id === payload.id) {
+            state.currentCar = payload;
+          }
+        }
+
         state.carUpdateState = 'idle';
-        state.currentCar = findCar;
-        
         return state;
       }
     );
-    
+
     // builder.addCase(
     //   updateCarsThunk.fulfilled,
     //   (state: CarsState, { payload }: PayloadAction<Car>) => {
-    //     state.cars[state.cars.findIndex((item) => item.id === payload.id)] =
-    //       payload;
+    //     const findCar =
+    //       state.cars[
+    //         state.cars.findIndex((item) => item.id === payload.id)
+    //       ];
+    //     state.carUpdateState = 'idle';
+    //     state.currentCar = findCar;
+        
     //     return state;
     //   }
     // );
+    
+
   },
 });
 

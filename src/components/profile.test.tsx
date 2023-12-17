@@ -10,18 +10,18 @@ import { useCars } from '../hooks/use.cars';
 jest.mock('../hooks/use.cars.ts', () => ({
   useCars: jest.fn().mockReturnValue({
     loadCars: jest.fn(),
+    loadCarsByPage: jest.fn(),
     cars: [],
   }),
 }));
 
 describe('Given List Component', () => {
-
   describe('When we instantiate it', () => {
     beforeEach(() => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <List/>
+            <List />
           </Provider>
         </BrowserRouter>
       );
@@ -30,7 +30,7 @@ describe('Given List Component', () => {
     test('Then should render each car item', async () => {
       // Esperar a que la carga de autos se complete
       await waitFor(() => {
-        expect(useCars().loadCars).toHaveBeenCalled();
+        expect(useCars().loadCarsByPage).toHaveBeenCalled();
       });
 
       useCars().cars.forEach((car: Car) => {
