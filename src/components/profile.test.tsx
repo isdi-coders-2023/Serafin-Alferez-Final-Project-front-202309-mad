@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from '../store/store';
 import { Car } from '../entities/car';
-import { List } from './list/list';
+import { List } from "./list/List";
 import { useCars } from '../hooks/use.cars';
 
 jest.mock('../hooks/use.cars.ts', () => ({
