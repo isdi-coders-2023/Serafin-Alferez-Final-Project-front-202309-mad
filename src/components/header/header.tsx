@@ -13,7 +13,7 @@ export function Header() {
       <Link to={'/home'}>
       <img src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_80/v1702842157/Proyecto%20Final%20Figma/classic_carlogo_swndrv.png" alt="logo Classic Cars" />
       </Link>
-      <h1>MY CLASSIC CARS</h1>
+      <h1>CLASSIC CARS</h1>
       <HeaderButtons></HeaderButtons>
 
     </header>

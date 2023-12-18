@@ -45,8 +45,8 @@ export function Register() {
     {hasRegister && (
       <div>
         <p>SUCESSFUL</p>
-        <Link to={'/home/'}>
-          <button type="button">HOME</button>
+        <Link to={'/login/'}>
+          <button type="button">LOGIN</button>
         </Link>
       </div>
     )}    

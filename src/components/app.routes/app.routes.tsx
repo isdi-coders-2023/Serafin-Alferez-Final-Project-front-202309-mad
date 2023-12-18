@@ -25,7 +25,7 @@ export function AppRoutes() {
           <Route path="/details/:id" element={<Details></Details>}></Route>
           <Route path="/addcar" element={<AddCar></AddCar>}></Route>
           <Route path="/edit/:id" element={<EditCar></EditCar>}></Route>
-          <Route path="/error" element={<ErrorPage></ErrorPage>}></Route>
+          <Route path="/*" element={<ErrorPage></ErrorPage>}></Route>
         </Routes>
       </Suspense>
     </main>

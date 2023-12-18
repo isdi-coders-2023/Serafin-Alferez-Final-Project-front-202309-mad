@@ -2,15 +2,56 @@
   width: 15rem;
   border: none;
   border-radius: 5rem;
-  padding-top: 3rem;
-}
-
-.card-info-container {
-  display: column;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
-// .cardinfo {
-//   display: column;
-//   justify-content: space-between;
-// }
+.cardinfocontainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: -1rem;
+  background-color: rgba(175, 142, 99, 0.349);
+  border-radius: 5px;
+}
+
+.card-make,
+.card-year {
+  text-align: center;
+  flex: 1;
+}
+
+.deletebutton {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+.updatebutton {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; 
+  position: absolute;
+  top: 3px;
+  left: 195px;
+}
+
+.carimage {
+  width: 130%;
+  border: 3px solid #ffffff00;
+  border-radius: 1rem;
+}
+
+.deleteupdatebuttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardinfocontainer {}
+
+.cardcontainer {
+  position: relative;
+}
