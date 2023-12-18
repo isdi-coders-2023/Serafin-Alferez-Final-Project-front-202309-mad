@@ -6,7 +6,7 @@
 }
 
 .profilebutton:hover {
-  box-shadow: 0px 0px 1px 1px rgb(15, 15, 15) ;
+  box-shadow: 0px 0px 1px 1px rgb(15, 15, 15);
   color: white;
   background-color: rgb(28, 23, 23);
   border: none;
@@ -25,11 +25,10 @@
 
 .helloprofilebutton {
   display: flex;
-  ;
   flex-direction: column;
   align-items: center;
 }
 
 .hello {
   margin-bottom: 0.5rem;
-}
+}/*# sourceMappingURL=header.buttons.module.css.map */

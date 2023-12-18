@@ -1,9 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCars } from "../../hooks/use.cars";
 import { SyntheticEvent } from "react";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../store/store";
-// import { useUsers } from "../../hooks/use.users";
+import styles from './add.car.module.scss'
 
 export default function AddCar() {
   const navigate = useNavigate();
@@ -16,20 +14,18 @@ export default function AddCar() {
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     createCar(formData);
-    // updateCurrentUser(loggedUser!.id);
-    // console.log('Desde AddCar', loggedUser)   / quitado 15-12
     navigate('/home/');
   };
     return (
-      <>
-        <div className="add-car-tittle">
-          <h3>ADD NEW CAR</h3>
+      <div className={styles.addcontainer}>
+        <div className={styles.addtitle}>
+          <h3 className={styles.addtitle}>ADD NEW CAR</h3>
         </div>
-        <div className="add-car-form">
+        <div className={styles.addform}>
           <form onSubmit={handleCreateCar} action="">
             <label htmlFor="make">Make</label>
-            {/* <input type="text" name="make"/> */}
-              <select name="make" id="make" required>
+              <select className={styles.select} name="make" id="make" required>
+                <option value=""></option>
                 <option value="alfa romeo">Alfa Romeo</option>
                 <option value="aston martin">Aston Martin</option>
                 <option value="audi">Audi</option>
@@ -53,25 +49,27 @@ export default function AddCar() {
                 <option value="seat">Seat</option>
                 <option value="volkswagen">Volkswagen</option>
               </select>
-              <label htmlFor="model">Model</label>
-                <input type="text" name="model" required/>
-              <label htmlFor="year">Year</label>
-                <input type="text" name="year" />
-              <label htmlFor="color">Color</label>
-                <input type="text" name="color" />
-              <label htmlFor="info">Description</label>
-              <textarea name="info" id="info" cols={30} rows={5}></textarea>
-              <div className="add-file" id="add-file">
-                <input type="file" name="picture" aria-label="file"/>
+              <div className={styles.options}>
+                <label htmlFor="model">Model</label>
+                  <input type="text" name="model" required/>
+                <label htmlFor="year">Year</label>
+                  <input type="text" name="year" />
+                <label htmlFor="color">Color</label>
+                  <input type="text" name="color" />
+                <label htmlFor="info">Description</label>
+                <textarea name="info" id="info" cols={25} rows={3}></textarea>
+                <div className="add-file" id="add-file">
+                  <input type="file" name="picture" aria-label="file"/>
+                </div>
               </div>
-              <button className="save-button" type="submit">SAVE</button>
+              <div className={styles.addcarbuttons}>
+                <button className={styles.savebutton} type="submit">SAVE</button>
+                <Link to={'/profile/'}>
+                  <button type="button">CANCEL</button>
+                </Link>
+              </div>
           </form>
         </div>
-        <div className="cancel-button">
-          <Link to={'/profile/'}>
-            <button type="button">CANCEL</button>
-          </Link>
-        </div>
-    </>
+    </div>
   );
 }
