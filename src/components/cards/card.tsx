@@ -33,7 +33,8 @@ export const Card = ({data}: Props) => {
   return (
     <div className={styles.cardcontainer}>
       {isProfileRoute && (
-        <div className={styles.deleteupdatebuttons}><div className={styles.deletebutton}>
+        <div className={styles.deleteupdatebuttons}>
+          <div className={styles.deletebutton}>
           <img
             onClick={handleDelete}
             role="button"

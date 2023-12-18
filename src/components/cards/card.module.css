@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .card {
   border: none;
   border-radius: 5rem;
@@ -6,28 +7,54 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
-.cardinfocontainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.carimage {
   width: 100%;
-  margin-top: -1rem;
-  background-color: rgba(175, 142, 99, 0.349);
-  border-radius: 5px;
+  border: 3px solid rgba(255, 255, 255, 0);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s;
 }
 
-.card-make,
-.card-year {
-  text-align: center;
-  flex: 1;
+.carimage {
+  width: 100%;
+  border: 3px solid rgba(255, 255, 255, 0);
+  border-radius: 1rem;
+  overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor */
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s; /* Agrega transiciones para ambos efectos */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega la sombra en todo momento */
+}
+.carimage:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Ajusta la sombra al hacer hover */
+  transform: scale(1.1); /* Amplía la imagen al hacer hover */
+}
+.carimage .imagen {
+  width: 100%;
+  border-radius: 1rem;
+  transition: transform 0.3s;
+}
+
+.card:hover .carimage,
+.card:hover .carimage img {
+  transform: scale(1.35);
+}
+
+.cardcontainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .deletebutton {
   position: absolute;
   top: 20px;
   left: 30px;
+  z-index: 1;
 }
 
 .updatebutton {
@@ -37,24 +64,5 @@
   position: absolute;
   top: 3px;
   left: 195px;
-}
-
-.carimage {
-  width: 100%;
-  border: 3px solid rgba(255, 255, 255, 0);
-  border-radius: 1rem;
-  display: flex;
-}
-
-.deleteupdatebuttons {
-  display: flex;
-  flex-direction: row;
-}
-
-.cardcontainer {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  z-index: 1;
 }/*# sourceMappingURL=card.module.css.map */
