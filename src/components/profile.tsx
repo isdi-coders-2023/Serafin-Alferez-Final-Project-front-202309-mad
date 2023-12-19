@@ -31,7 +31,7 @@ export default function Profile() {
 
   return(
     <div>
-      <h3 data-testid="cars">{loggedUser?.name} cars</h3>
+      <h3 data-testid="cars">{loggedUser?.name}'s cars</h3>
       <div className={styles.mylist}>
         {userCars.length > 0 ? (
           userCars.map((item: Car) => <Card key={item.id} data={item}></Card>)

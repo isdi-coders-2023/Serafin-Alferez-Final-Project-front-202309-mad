@@ -6,12 +6,10 @@ import { List } from "../list";
 
 export default function HomePage() {
 
-  // const { cars } = useSelector((state: RootState) => state.carsState);
-
   return (
-    <>
+    <div data-testid='home-component'>
       <h3 className={styles.title}>ALL USERS PUBLICATIONS</h3>
       <List></List>
-    </>
+    </div>
   )
 }

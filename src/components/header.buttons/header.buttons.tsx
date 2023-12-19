@@ -8,7 +8,7 @@ import styles from './header.buttons.module.scss';
 export function HeaderButtons() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { loggedUser } = useSelector((state: RootState) => state.userState);
-
+  
   const navigate = useNavigate();
   const location = useLocation();
   const isProfilePage = location.pathname === '/profile/';
@@ -33,9 +33,8 @@ export function HeaderButtons() {
           </div>
           <div className={styles.helloprofilebutton}>
             <p className={styles.hello}>Hola {loggedUser.name}</p>
-            {!isProfilePage && <button className={styles.profilebutton} onClick={() => navigate('/profile/')}>MY LIST</button>}
+            {!isProfilePage && <button data-testid='button' className={styles.profilebutton} onClick={() => navigate('/profile/')}>MY LIST</button>}
           </div>
-         
         </div>
       )}
     </div>

@@ -2,14 +2,18 @@
 
 @import 'variables';
 
+
+
 .logincontainer {
   background-color: $color-fondo;
   width: 300px;
-  height: 300px;
+  height: 250px;
   display: flex;
   align-items: initial;
   justify-content: center;
   gap: 0rem;
+  border-radius: 10px;
+  
 }
 
 .loginformbuttons {
@@ -25,8 +29,8 @@
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
-  height: 300px;
-  margin-top: 1rem;
+  height: 280px;
+  margin-top: 0rem;
 
   label {
     color: $color-primario;

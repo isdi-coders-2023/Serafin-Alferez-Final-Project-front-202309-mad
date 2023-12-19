@@ -11,6 +11,6 @@ describe('ErrorPage', () => {
     expect(headerElement).toBeInTheDocument();
     const imageElement = screen.getByAltText(/coche calamitoso/i);
     expect(imageElement).toBeInTheDocument();
-    expect(imageElement).toHaveAttribute('src', 'https://res.cloudinary.com/drv1kbmgi/image/upload/h_300/v1702739546/ca954fdb-a363-4ec2-a939-2435059437c4-broken-car-png-16.png');
+    expect(imageElement).toHaveAttribute('src', 'https://res.cloudinary.com/drv1kbmgi/image/upload/h_250/v1702739546/ca954fdb-a363-4ec2-a939-2435059437c4-broken-car-png-16.png');
   });
 });
