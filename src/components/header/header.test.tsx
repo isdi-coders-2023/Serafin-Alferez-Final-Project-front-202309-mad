@@ -12,22 +12,14 @@ describe('Given header component', () => {
         <Header></Header>
         <HeaderButtons></HeaderButtons>
       </Router>
-    
-
     );
     
     const logo = getByAltText('logo Classic Cars');
-    const title = getByText('MY CLASSIC CARS');
+    const title = getByText('CLASSIC CARS');
 
     test('Then the screen shows', async () => {
       expect(logo).toBeInTheDocument();
       expect(title).toBeInTheDocument();
     });
-  
-    
   });
-
-
-
-
 })

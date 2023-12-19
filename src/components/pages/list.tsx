@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Card } from "../cards/card";
 import { Car } from "../../entities/car";
 import { useParams, useNavigate } from "react-router-dom";
+import styles from './../list/list.module.scss'
 
 
 export function List() {
@@ -26,14 +27,17 @@ export function List() {
   }, [loadCarsByPage, page]);
 
   return (
-    <>
-      <ul className="cars-list">
+    <div className={styles.listcontainer}>
+      <div className={styles.pagebuttons}>
+        {Number(page!) > 1 && <button onClick={goToPreviousPage}>Previous</button>}
+        {cars.length > 0 ? <button onClick={goToNextPage}>Next</button> : <p className={styles.nocars}>No more cars to show</p>}
+      </div>
+      <ul className={styles.carslist}>
         {cars.map((item: Car) => (
           <Card key={item.id} data={item}></Card>
         ))}
       </ul>
-      {Number(page!) > 1 && <button onClick={goToPreviousPage}>Previous</button>}
-      {cars.length > 0 ? <button onClick={goToNextPage}>Next</button> : <p>No more cars to show</p>}
-    </>
+
+    </div>
   );
 };

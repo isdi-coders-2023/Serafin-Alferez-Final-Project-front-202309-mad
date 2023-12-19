@@ -1,4 +1,4 @@
-// import { RootState } from "../../../store/store";
+import styles from './home.module.scss'
 
 import { List } from "../list";
 
@@ -6,12 +6,10 @@ import { List } from "../list";
 
 export default function HomePage() {
 
-  // const { cars } = useSelector((state: RootState) => state.carsState);
-
   return (
-    <>
-      <h3>ALL USERS PUBLICATIONS</h3>
+    <div data-testid='home-component'>
+      <h3 className={styles.title}>ALL USERS PUBLICATIONS</h3>
       <List></List>
-    </>
+    </div>
   )
 }

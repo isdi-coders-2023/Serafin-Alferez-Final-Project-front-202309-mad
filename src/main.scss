@@ -3,6 +3,13 @@
 }
 
 body {
+  background-image: url("https://res.cloudinary.com/drv1kbmgi/image/upload/o_30/v1702840115/Proyecto%20Final%20Figma/fondometal_spqnl5.jpg");
   margin: 0;
-  background-image: url("https://as2.ftcdn.net/v2/jpg/02/62/06/71/1000_F_262067175_VvZwnaZY9fQlczPlDmVKz27VKWHeG30b.jpg");
+  padding: 0;
+  height: 100%;
+}
+
+.main-container {
+  min-height: 100vh;
+  position: relative;
 }

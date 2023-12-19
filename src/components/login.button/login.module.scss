@@ -1,0 +1,93 @@
+// login.module.scss
+
+@import 'variables';
+
+
+
+.logincontainer {
+  background-color: $color-fondo;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  align-items: initial;
+  justify-content: center;
+  gap: 0rem;
+  border-radius: 10px;
+  
+}
+
+.loginformbuttons {
+  display: flex;
+
+}
+
+.loginform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  height: 280px;
+  margin-top: 0rem;
+
+  label {
+    color: $color-primario;
+  }
+
+  .input-form {
+    width: 100%;
+    padding: 6px 12px;
+    font-size: $buttons-size;
+    border: 10px solid $color-primario;
+    border-radius: 10px;
+  }
+
+  .loginbutton {
+    background-color: $color-primario;
+    color: white;
+    border: none;
+    margin-right: 1rem;
+    padding: $buttons-size;
+    text-align: center;
+    text-decoration: none;
+    font-size: $buttons-size;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+
+    &:hover {
+      background-color: $color-hover;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    &:disabled {
+      background-color: #ddd;
+      color: #555;
+      cursor: not-allowed;
+    }
+  }
+
+  .cancelbutton {
+    color: $color-primario;
+    border: 1px solid $color-primario;
+    background-color: white;
+    padding: $buttons-size;
+    margin-left: 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: $buttons-size;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background-color: $color-hover;
+      color: white;
+    }
+  }
+}

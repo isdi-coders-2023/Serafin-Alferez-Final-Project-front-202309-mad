@@ -6,6 +6,13 @@ import { store } from '../../store/store';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn().mockReturnValue({
+    pathname: '/',
+  }),
+}));
+
 
 
 jest.mock('../../hooks/use.users', () => ({
@@ -15,10 +22,10 @@ describe('Given HeaderButtons component...', () => {
   describe('When the component is called', () => {
     render(
       <Router>
-      <Provider store={store}>
-        <HeaderButtons />
-      </Provider>
-    </Router>
+        <Provider store={store}>
+          <HeaderButtons />
+        </Provider>
+      </Router>
     )
     test('Then its buttons must', async () => {
       const loginButton = screen.getAllByRole('button')[0];
@@ -27,6 +34,8 @@ describe('Given HeaderButtons component...', () => {
       const registerButton = screen.getAllByRole('button')[1];
       expect(registerButton).toBeInTheDocument();
       await userEvent.click(registerButton);
+
+
   });
 });
 });

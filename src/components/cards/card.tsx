@@ -2,8 +2,8 @@ import { Link, useLocation,/* useNavigate */} from "react-router-dom";
 import { Car } from "../../entities/car";
 import { makeImageURL } from "../../services/images";
 import { useCars } from "../../hooks/use.cars";
-import { card } from './card.module.scss';
 import  EditCar from "../edit.car";
+import styles from './card.module.scss';
 
 
 
@@ -31,16 +31,17 @@ export const Card = ({data}: Props) => {
   const isProfileRoute = location.pathname === '/profile/';
 
   return (
-    <>
+    <div className={styles.cardcontainer}>
       {isProfileRoute && (
-        <><div className="delete-button-container">
+        <div className={styles.deleteupdatebuttons}>
+          <div className={styles.deletebutton}>
           <img
             onClick={handleDelete}
             role="button"
             className=""
-            src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_20/v1702548355/FP%20icons/delete_icon_bab1eq.png"
+            src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_25/v1702902215/FP%20icons/transparent-can-icon-trash-icon-5d6f94fbec0c50.3523332615675937239669_h0veqp.png"
             alt="Delete icon" />
-        </div><div className="update-button-container">
+        </div><div className={styles.updatebutton}>
             <Link
               to={'/edit/' + data.id}
               style={{ textDecoration: 'none' }}
@@ -52,9 +53,9 @@ export const Card = ({data}: Props) => {
               src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_20/v1702548350/FP%20icons/edit_icon_z9fqvn.png"
               alt="Update icon" />
             </Link>
-          </div></>
+          </div></div>
       )}
-      <div className={card}>
+      <div className={styles.card}>
         <Link
           to={'/details/' + data.id}
           style={{ textDecoration: 'none' }}
@@ -65,20 +66,20 @@ export const Card = ({data}: Props) => {
                 src={carPicture}
                 alt={`imagen de ${data.make}`}
                 onClick={() => handleDetailsPage(data)}
-                className="mobile-front-img"
+                className={styles.carimage}
               />
             </figure>
           </article>
         </Link>
-        <div className="card-info-container">
-          <div className="card-make">
-            <p className="card-make">{data.make}</p>
-          </div>
-          <div className="card-year">
-            <p className="card-year">{data.year}</p>
-          </div>
+        <div className={styles.cardinfocontainer}>
+          <span className="card-make">
+            <p className={styles.make}>{data.make}</p>
+          </span>
+          <span className="carmodel">
+            <p className={styles.model}>{data.model}</p>
+          </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };

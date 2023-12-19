@@ -2,6 +2,7 @@ import { SyntheticEvent, useState } from "react";
 import { useUsers } from '../../hooks/use.users';
 import { Link } from "react-router-dom";
 import { User } from "../../entities/user";
+import styles from './register.module.scss'
 
 export function Register() {
   const [hasRegister, setHasRegister] = useState(false);
@@ -20,10 +21,10 @@ export function Register() {
   };
 
   return (
-    <>
+    <div className={styles.registercontainer}>
 
     {!hasRegister && (
-      <form onSubmit={handleSubmit} className="register-form" aria-label="form">
+      <form onSubmit={handleSubmit} className={styles.registerform} aria-label="form">
         <label>Email</label>
           <input type="email" name="email" required/>
         <label>Password</label>
@@ -32,24 +33,26 @@ export function Register() {
           <input type="text" name="name" required/>
         <label>Surname</label>
           <input type="text" name="surname" required/>
-        <div className="signup-button">
-          <button type="submit">SIGN UP</button>
-        </div>
-        <div className="cancel-button">
-          <Link to={'/home/'}>
-            <button type="button">CANCEL</button>
-          </Link>
-        </div>  
+          <div className={styles.registerformbuttons}>
+            <div className={styles.signupbutton}>
+              <button type="submit">SIGN UP</button>
+            </div>
+            <div className={styles.cancelbutton}>
+              <Link to={'/home/'}>
+              <button type="button">CANCEL</button>
+              </Link>
+            </div>
+          </div>
       </form>
     )}
     {hasRegister && (
       <div>
         <p>SUCESSFUL</p>
-        <Link to={'/home/'}>
-          <button type="button">HOME</button>
+        <Link to={'/login/'}>
+          <button type="button">LOGIN</button>
         </Link>
       </div>
     )}    
-  </>
+  </div>
   );
 }

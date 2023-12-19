@@ -1,0 +1,83 @@
+// add.car.module.scss
+
+@import 'variables'; 
+
+.addcontainer {
+  background-color: $color-fondo;
+  width: 300px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+}
+
+.addtitle {
+  h3 {
+    color: $color-primario;
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+.addform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  label {
+    color: $color-primario;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border: 2px solid $color-primario;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  .savebutton,
+  .cancelbutton button {
+    background-color: $color-primario;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background-color: $color-hover;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    &:disabled {
+      background-color: #ddd;
+      color: #555;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.addcarbuttons {
+  display: flex;
+  
+  gap: 0.5rem;
+
+  button {
+    flex: 1;
+    z-index: 1;
+  }
+}

@@ -1,32 +1,32 @@
 import { makeImageURL } from "../../services/images";
-import { details } from "./details.module.scss";
 import { useCars } from "../../hooks/use.cars";
 import { Link } from "react-router-dom";
+import styles from './details.module.scss'
 
 export default function Details() {
   // const { currentCar } = useSelector((state: RootState) => state.carsState);
   const { currentCar } = useCars()
-  const carPicture = currentCar && currentCar.picture && makeImageURL(currentCar?.picture.publicId, 150);
+  const carPicture = currentCar && currentCar.picture && makeImageURL(currentCar?.picture.publicId, 300);
   return (
     <>
-      <div className={details} data-testid='button'>
+      <div className={styles.details} data-testid='button'>
         <Link to={'/home'}>
-          <img src={ carPicture! } alt="imagen del vehículo seleccionado" />
+          <img className={styles.image} src={ carPicture! } alt="imagen del vehículo seleccionado" />
         </Link>
-        <div>
-            <div className="card-make">
+        <div className={styles.infocontainer}>
+            <div className={styles.cardmake}>
               <p className="card-make" data-testid='paragraph'>{currentCar?.make}</p>
             </div>
-            <div className="card-model">
+            <div className={styles.cardmodel}>
               <p className="card-model">{currentCar?.model}</p>
             </div>
-            <div className="card-color">
+            <div className={styles.cardcolor}>
               <p className="card-color">{currentCar?.color}</p>
             </div>
-            <div className="card-year">
+            <div className={styles.cardyear}>
               <p className="card-year">{currentCar?.year}</p>
             </div>
-            <div className="card-info">
+            <div className={styles.cardinfo}>
               <p className="card-info">{currentCar?.info}</p>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { useUsers } from "../../hooks/use.users";
 import { useNavigate } from 'react-router-dom';
 import { LoginUser } from "../../entities/user";
 import { Link } from "react-router-dom";
-
+import styles from './login.module.scss';
 
 export function Login() {
   const navigate = useNavigate();
@@ -29,24 +29,25 @@ export function Login() {
     }, [hasLogin, navigate]);
 
     return (
-      <>
+      <div className={styles.logincontainer}>
         {!hasLogin && (
-          <form onSubmit={handleSubmit} className="login-form" aria-label="form">
+          <form onSubmit={handleSubmit} className={styles.loginform} aria-label="form">
             <label >EMAIL</label>
               <input className="input-form" type="email" name="email" required />
             <label>PASSWORD</label>
               <input className="input-form" type="password" name="password" required />
-            <div className="login-button">
-              <button type="submit">LOGIN</button>
-            </div>
-            <div className="cancel-button">
-              <Link to={'/home/'}>
-                <button type="button">CANCEL</button>
-              </Link>
-            </div>
+            <div className={styles.loginformbuttons}>
+              <div className={styles.loginbuttoncontainer}>
+                <button className={styles.loginbutton} type="submit">LOGIN</button>
+              </div>
+              <div className={styles.cancelbuttoncontainer}>
+                <Link to={'/home/'}>
+                  <button className={styles.cancelbutton} type="button">CANCEL</button>
+                </Link>
+              </div>
+              </div>
           </form>
         )}
-        {/* {hasLogin && navigate('/home/')} */}
-      </>
+      </div>
       )
   }

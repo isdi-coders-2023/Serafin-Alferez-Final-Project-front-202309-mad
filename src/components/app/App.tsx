@@ -1,6 +1,8 @@
 // import { useEffect } from 'react';
 import { AppRoutes } from '../app.routes/app.routes';
+
 import { Header } from '../header/header';
+import { Footer } from '../pages/footer';
 
 
 export function App() {
@@ -9,6 +11,7 @@ export function App() {
     <>
       <Header></Header>
       <AppRoutes></AppRoutes>
+      <Footer></Footer>
     </>
   );
 }
