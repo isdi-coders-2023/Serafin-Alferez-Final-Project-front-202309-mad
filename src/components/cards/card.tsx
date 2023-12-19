@@ -73,10 +73,10 @@ export const Card = ({data}: Props) => {
         </Link>
         <div className={styles.cardinfocontainer}>
           <span className="card-make">
-            <p className="card-make">{data.make}</p>
+            <p className={styles.make}>{data.make}</p>
           </span>
           <span className="carmodel">
-            <p className="carmodel">{data.model}</p>
+            <p className={styles.model}>{data.model}</p>
           </span>
         </div>
       </div>

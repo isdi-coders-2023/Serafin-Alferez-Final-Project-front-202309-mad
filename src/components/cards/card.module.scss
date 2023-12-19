@@ -9,27 +9,21 @@
   position: relative;
 }
 
+
 .carimage {
   width: 100%;
   border: 3px solid #ffffff00;
   border-radius: 1rem;
+  transition: transform 0.3s;
   overflow: hidden; 
-  transition: transform 0.3s; 
-}
-
-.carimage {
-  width: 100%;
-  border: 3px solid #ffffff00;
-  border-radius: 1rem;
-  overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor */
   position: relative;
-  transition: box-shadow 0.3s, transform 0.3s; /* Agrega transiciones para ambos efectos */
+  transition: box-shadow 0.3s, transform 0.3s;
 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega la sombra en todo momento */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 
   &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Ajusta la sombra al hacer hover */
-    transform: scale(1.1); /* Amplía la imagen al hacer hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); 
+    transform: scale(1.1);
   }
   .imagen {
     width: 100%;
@@ -41,7 +35,7 @@
 
 .card:hover .carimage,
 .card:hover .carimage img {
-  transform: scale(1.35);
+  transform: scale(1.2);
 }
 
 .cardcontainer {
@@ -54,16 +48,40 @@
 
 .deletebutton {
   position: absolute;
-  top: 20px;
-  left: 30px;
+  top: 30px;
+  left: 60px;
   z-index: 1;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 30px;
+    left: 80px;
+    z-index: 1;
+  }
 }
 .updatebutton {
   display: flex;
   justify-content: center;
   margin-top: 1rem; 
   position: absolute;
-  top: 3px;
-  left: 195px;
+  top: 15px;
+  left: 200px;
   z-index: 1;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 15px;
+    left: 280px;
+    z-index: 1;
+  }
 }
+
+.cardinfocontainer {
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(136, 102, 61, 0.266);
+  border-radius: 10px;
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
+

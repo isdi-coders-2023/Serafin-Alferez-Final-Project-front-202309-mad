@@ -1,10 +1,10 @@
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from '../store/store';
-import { Car } from '../entities/car';
+
 
 import { useCars } from '../hooks/use.cars';
 import Profile from './profile.tsx';
@@ -12,7 +12,14 @@ import Profile from './profile.tsx';
 jest.mock('../hooks/use.cars.ts', () => ({
   useCars: jest.fn().mockReturnValue({
     loadCars: jest.fn(),
-    cars: [],
+    cars: [{author: {id: 'test'}}],
+    carUpdateState: 'test',
+  }),
+}));
+
+jest.mock('../hooks/use.users', () => ({
+  useUsers: jest.fn().mockReturnValue({
+    loggedUser: {name: 'test', id: 'test'}
   }),
 }));
 
@@ -28,16 +35,15 @@ describe('Given List Component', () => {
       );
     });
 
-    test('Then should render each car item', async () => {
-      // Esperar a que la carga de autos se complete
-      await waitFor(() => {
-        expect(useCars().loadCars).toHaveBeenCalled();
-      });
+    test('the loadCar should have been called', () => {
+      expect(useCars().loadCars).toHaveBeenCalled();
+    });
+  
 
-      useCars().cars.forEach((car: Car) => {
-        const carElement = screen.getByText(car.make);
-        expect(carElement).toBeInTheDocument();
-      });
+    test('Then the car card should be in the document...', () => {
+      const result = screen.getByTestId('cars');
+      expect(result).toBeInTheDocument();
+    });
     });
   });
-});
+

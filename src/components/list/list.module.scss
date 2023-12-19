@@ -6,12 +6,16 @@
   list-style: none;
   padding: 0;
   margin: 0;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; 
+    gap: 2rem; 
+  }
 }
 
-.no
 
 .listcontainer {
-  /* ... Otros estilos ... */
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,9 +52,14 @@ button {
   }
 
   &:disabled {
-    background-color: #ddd; /* Color de fondo gris cuando está deshabilitado */
-    color: #555; /* Color de texto gris cuando está deshabilitado */
-    cursor: not-allowed; /* Cursor de "no permitido" cuando está deshabilitado */
+    background-color: #ddd;
+    color: #555; 
+    cursor: not-allowed;
   }
 }
 
+.nocars {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}

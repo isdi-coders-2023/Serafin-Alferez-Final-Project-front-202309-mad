@@ -6,7 +6,7 @@ import styles from './details.module.scss'
 export default function Details() {
   // const { currentCar } = useSelector((state: RootState) => state.carsState);
   const { currentCar } = useCars()
-  const carPicture = currentCar && currentCar.picture && makeImageURL(currentCar?.picture.publicId, 150);
+  const carPicture = currentCar && currentCar.picture && makeImageURL(currentCar?.picture.publicId, 300);
   return (
     <>
       <div className={styles.details} data-testid='button'>
