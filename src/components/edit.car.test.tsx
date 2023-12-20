@@ -57,7 +57,7 @@ describe('EditPage', () => {
       );
   
       const makeInput = screen.getByTestId('select');
-      userEvent.selectOptions(makeInput, 'audi');
+      userEvent.selectOptions(makeInput, 'Audi');
       const submitButton = getByRole('button', { name: /SAVE/i });
       userEvent.click(submitButton);
       expect(updateCarMock).toHaveBeenCalled();
