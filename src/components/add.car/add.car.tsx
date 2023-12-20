@@ -21,9 +21,9 @@ export default function AddCar() {
           <h2 className={styles.addtitle}>ADD NEW CAR</h2>
         </div>
         <div className={styles.addform}>
-          <form onSubmit={handleCreateCar} action="">
+          <form onSubmit={handleCreateCar} action="" role="form">
             <label htmlFor="make">Make</label>
-              <select className={styles.addselect} name="make" id="make" required>
+              <select className={styles.addselect} data-testid='select' name="make" id="make" required>
                 <option className={styles.addoption} value=""></option>
                 <option className={styles.addoption} value="Alfa romeo">Alfa Romeo</option>
                 <option className={styles.addoption} value="Aston martin">Aston Martin</option>
