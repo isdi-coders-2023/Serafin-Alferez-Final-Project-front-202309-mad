@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const Card = ({data}: Props) => {
-  // const navigate = useNavigate();
+ 
   const { handleDetailsPage, deleteCar } = useCars();
   const carPicture = data && data.picture && makeImageURL(data?.picture.publicId, 150);
   const location = useLocation();
