@@ -1,6 +1,6 @@
 import { CarsRepo } from "../services/api.repo.cars";
 import { store } from "../store/store";
-import { createCarThunk, deleteCarThunk, loadCarsThunk, updateCarsThunk } from "./cars.thunk";
+import { createCarThunk, deleteCarThunk, loadCarsByPageThunk, loadCarsThunk, updateCarsThunk } from "./cars.thunk";
 
 
 describe('Given a scenario where...', () => {
@@ -8,6 +8,7 @@ describe('Given a scenario where...', () => {
     const mockCarsRepo = {
       repo: {
         getCars: jest.fn().mockReturnValue([]),
+        getCarsByPage: jest.fn().mockReturnValue([]),
         createCar: jest.fn().mockReturnValue({}),
         updateCar: jest.fn().mockResolvedValue({}),
         deleteCar: jest.fn().mockResolvedValue('1'),
@@ -30,6 +31,7 @@ describe('Given a scenario where...', () => {
         newCar
       );
     });
+
     test('Then it should dispatch updateCarsThunk and update a car', async () => {
       const data = { ...mockCarsRepo } as { repo: CarsRepo };
       const idToUpdate = '1';
@@ -55,6 +57,12 @@ describe('Given a scenario where...', () => {
       );
 
       expect(data.repo.deleteCar).toHaveBeenCalledWith(idToDelete);
+    });
+
+    test('Then it should dispatch loadCarsByPageThunk and update cars store', async () => {
+      const data = { ...mockCarsRepo } as { repo: CarsRepo };
+      await store.dispatch(loadCarsByPageThunk({repo: data.repo, pageNumber: '1'}));
+      expect(data.repo.getCarsByPage).toHaveBeenCalled();
     });
   });
 });

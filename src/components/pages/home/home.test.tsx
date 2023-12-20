@@ -5,8 +5,6 @@ import  HomePage  from './home'
 import { MemoryRouter as Router } from "react-router-dom";
 import { store } from '../../../store/store';
 
-
-
 describe('HomePage Component', () => {
   test('renders home page with title and list', () => {
     render(  

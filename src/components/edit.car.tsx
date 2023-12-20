@@ -54,7 +54,7 @@ export default function EditCar () {
           <h3 className={styles.edittitle}>EDIT CAR</h3>
         </div>
         <div className={styles.editform}>
-          <form onSubmit={handleUpdateCar} action="" role="form">
+          <form onSubmit={handleUpdateCar} action="" role='form'>
               <select className={styles.editselect} data-testid='select' name="make" id="make" value={findCar?.make} onChange={handleInputChangeCar} required>
                 <option className={styles.editoption} value=""></option>
                 <option className={styles.editoption} value="Alfa romeo">Alfa Romeo</option>

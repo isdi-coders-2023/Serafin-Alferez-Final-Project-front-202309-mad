@@ -1,15 +1,46 @@
+
 .details {
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 1.4rem;
   background-color: rgba(255, 255, 255, 0.745);
-  height: 75vh;
+  // height: 75vh;
 
 
 
-  @media (max-width: 768px) {
+
+  @media screen and (max-width: 768px) {
     flex-direction: column; 
+    margin-bottom: 14rem;
+
+    .detailscontainer {
+      height: 200vh;
+      background-color: black;
+
+    }
+
+    .image {
+      max-width: 80%;
+      margin: 2rem 2rem; 
+    }
+
+    .infocontainer{
+      padding: 2.3rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: col;
+  
+     
+    }
+
+ 
+ 
+    .details {
+      height: 300vh;
+      padding-top: 0;
+    }
   }
 }
 
@@ -21,26 +52,12 @@
   border-radius: 1rem;
   overflow: hidden;
   transition: box-shadow 0.3s, transform 0.3s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
-  @media (max-width: 768px) {
-    max-width: 80%;
-    margin: 2rem 2rem; 
-  }
 }
 
 .infocontainer {
   width: 100%;
-
-  @media (max-width: 768px) {
-    padding: 2.3rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: col;
-  }
-
-
 }
 
 .cardmake,
