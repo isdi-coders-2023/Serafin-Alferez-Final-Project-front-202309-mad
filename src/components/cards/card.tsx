@@ -1,4 +1,4 @@
-import { Link, useLocation,/* useNavigate */} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Car } from "../../entities/car";
 import { makeImageURL } from "../../services/images";
 import { useCars } from "../../hooks/use.cars";
@@ -27,6 +27,7 @@ export const Card = ({data}: Props) => {
     )
   }
 
+  console.log(location);
   const isProfileRoute = location.pathname === '/profile/';
 
   return (
@@ -63,6 +64,7 @@ export const Card = ({data}: Props) => {
             <figure>
               <img data-testid='img'
                 src={carPicture}
+                role="button"
                 alt={`imagen de ${data.make}`}
                 onClick={() => handleDetailsPage(data)}
                 className={styles.carimage}
