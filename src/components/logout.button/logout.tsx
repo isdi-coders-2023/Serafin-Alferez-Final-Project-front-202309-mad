@@ -12,7 +12,7 @@ export function LogoutButton() {
     {loggedUser && (
       <div className={styles.logouticon}>
       <Link to={'/home/'}>
-        <img role="button" onClick={logout} src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_25/v1702843443/Proyecto%20Final%20Figma/logout_icon_k3k8nk.png" alt="Logout icon" /> 
+        <img role="button" onClick={logout} src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_23/v1702843443/Proyecto%20Final%20Figma/logout_icon_k3k8nk.png" alt="Logout icon" /> 
       </Link>
     {/* <button onClick={logout} role="button">LOGOUT</button> */}
       </div>

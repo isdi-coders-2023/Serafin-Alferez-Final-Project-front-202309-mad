@@ -22,15 +22,15 @@
 }
 
 .loginform {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  height: 280px;
-  margin-top: 0rem;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // gap: 1rem;
+  // width: 100%;
+  // max-width: 300px;
+  // margin: 0 auto;
+  // height: 280px;
+  margin-top: 1rem;
 
   label {
     color: $color-primario;
@@ -48,7 +48,7 @@
     background-color: $color-primario;
     color: white;
     border: none;
-    margin-right: 1rem;
+    margin-left: 1.2rem;
     padding: $buttons-size;
     text-align: center;
     text-decoration: none;
@@ -76,7 +76,7 @@
     border: 1px solid $color-primario;
     background-color: white;
     padding: $buttons-size;
-    margin-left: 1rem;
+    margin-left: 2.5rem;
     text-align: center;
     text-decoration: none;
     font-size: $buttons-size;

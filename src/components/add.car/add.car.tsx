@@ -6,8 +6,7 @@ import styles from './add.car.module.scss'
 export default function AddCar() {
   const navigate = useNavigate();
   const { createCar } = useCars();
-  // const { updateCurrentUser } = useUsers();    // quitado 15-12
-  // const {loggedUser} = useSelector((state: RootState) => state.userState)
+
 
   const handleCreateCar = (event: SyntheticEvent) => {
     event.preventDefault();
@@ -19,53 +18,53 @@ export default function AddCar() {
     return (
       <div className={styles.addcontainer}>
         <div className={styles.addtitle}>
-          <h3 className={styles.addtitle}>ADD NEW CAR</h3>
+          <h2 className={styles.addtitle}>ADD NEW CAR</h2>
         </div>
         <div className={styles.addform}>
-          <form onSubmit={handleCreateCar} action="">
+          <form onSubmit={handleCreateCar} action="" role="form">
             <label htmlFor="make">Make</label>
-              <select className={styles.select} name="make" id="make" required>
-                <option value=""></option>
-                <option value="alfa romeo">Alfa Romeo</option>
-                <option value="aston martin">Aston Martin</option>
-                <option value="audi">Audi</option>
-                <option value="bentley">Bentley</option>
-                <option value="bmw">BMW</option>
-                <option value="cadillac">Cadillac</option>
-                <option value="chevrolet">Chevrolet</option>
-                <option value="citroen">Citröen</option>
-                <option value="ferrari">Ferrari</option>
-                <option value="ford">Ford</option>
-                <option value="jaguar">Jaguar</option>
-                <option value="lamborghini">Lamborghini</option>
-                <option value="lancia">Lancia</option>
-                <option value="lotus">Lotus</option>
-                <option value="mercedes Benz">Mercedes Benz</option>
-                <option value="mini">Mini</option>
-                <option value="morgan">Morgan</option>
-                <option value="peugeot">Peugeot</option>
-                <option value="porsche">Porsche</option>
-                <option value="renault">Renault</option>
-                <option value="seat">Seat</option>
-                <option value="volkswagen">Volkswagen</option>
+              <select className={styles.addselect} data-testid='select' name="make" id="make" required>
+                <option className={styles.addoption} value=""></option>
+                <option className={styles.addoption} value="Alfa romeo">Alfa Romeo</option>
+                <option className={styles.addoption} value="Aston martin">Aston Martin</option>
+                <option className={styles.addoption} value="Audi">Audi</option>
+                <option className={styles.addoption} value="Bentley">Bentley</option>
+                <option className={styles.addoption} value="BMW">BMW</option>
+                <option className={styles.addoption} value="Cadillac">Cadillac</option>
+                <option className={styles.addoption} value="Chevrolet">Chevrolet</option>
+                <option className={styles.addoption} value="Citroen">Citröen</option>
+                <option className={styles.addoption} value="Ferrari">Ferrari</option>
+                <option className={styles.addoption} value="Ford">Ford</option>
+                <option className={styles.addoption} value="Jaguar">Jaguar</option>
+                <option className={styles.addoption} value="Lamborghini">Lamborghini</option>
+                <option className={styles.addoption} value="Lancia">Lancia</option>
+                <option className={styles.addoption} value="Lotus">Lotus</option>
+                <option className={styles.addoption} value="Mercedes Benz">Mercedes Benz</option>
+                <option className={styles.addoption} value="Mini">Mini</option>
+                <option className={styles.addoption} value="Morgan">Morgan</option>
+                <option className={styles.addoption} value="Peugeot">Peugeot</option>
+                <option className={styles.addoption} value="Porsche">Porsche</option>
+                <option className={styles.addoption} value="Renault">Renault</option>
+                <option className={styles.addoption} value="Seat">Seat</option>
+                <option className={styles.addoption} value="Volkswagen">Volkswagen</option>
               </select>
-              <div className={styles.options}>
-                <label htmlFor="model">Model</label>
-                  <input type="text" name="model" required/>
-                <label htmlFor="year">Year</label>
-                  <input type="text" name="year" />
-                <label htmlFor="color">Color</label>
-                  <input type="text" name="color" />
-                <label htmlFor="info">Description</label>
+              <div className={styles.addoptions}>
+                <label className={styles.addoption} htmlFor="model">Model</label>
+                  <input className={styles.addoption} type="text" name="model" required/>
+                <label className={styles.addoption} htmlFor="year">Year</label>
+                  <input className={styles.addoption} type="text" name="year" />
+                <label className={styles.addoption} htmlFor="color">Color</label>
+                  <input className={styles.addoption} type="text" name="color" />
+                <label className={styles.addoption} htmlFor="info">Description</label>
                 <textarea name="info" id="info" cols={25} rows={3}></textarea>
-                <div className="add-file" id="add-file">
-                  <input type="file" name="picture" aria-label="file"/>
+                <div className={styles.addfile} id="add-file">
+                  <input className={styles.addfileinput} type="file" name="picture" aria-label="file"/>
                 </div>
               </div>
               <div className={styles.addcarbuttons}>
-                <button className={styles.savebutton} type="submit">SAVE</button>
+                <button className={styles.addsavebutton} type="submit">SAVE</button>
                 <Link to={'/profile/'}>
-                  <button type="button">CANCEL</button>
+                  <button className={styles.addcancelbutton} type="button">CANCEL</button>
                 </Link>
               </div>
           </form>

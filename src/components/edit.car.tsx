@@ -49,45 +49,45 @@ export default function EditCar () {
     navigate('/profile/');
   };
     return (
-      <div className={styles.addcontainer}>
-        <div className={styles.addtitle}>
-          <h3 className={styles.addtitle}>EDIT CAR</h3>
+      <div className={styles.editcontainer}>
+        <div className={styles.edittitle}>
+          <h3 className={styles.edittitle}>EDIT CAR</h3>
         </div>
-        <div className={styles.addform}>
+        <div className={styles.editform}>
           <form onSubmit={handleUpdateCar} action="" role="form">
-              <select className={styles.select} data-testid='select' name="make" id="make" value={findCar?.make} onChange={handleInputChangeCar} required>
-                <option value=""></option>
-                <option value="alfa romeo">Alfa Romeo</option>
-                <option value="aston martin">Aston Martin</option>
-                <option value="audi">Audi</option>
-                <option value="bentley">Bentley</option>
-                <option value="bmw">BMW</option>
-                <option value="cadillac">Cadillac</option>
-                <option value="chevrolet">Chevrolet</option>
-                <option value="citroen">Citröen</option>
-                <option value="ferrari">Ferrari</option>
-                <option value="ford">Ford</option>
-                <option value="jaguar">Jaguar</option>
-                <option value="lamborghini">Lamborghini</option>
-                <option value="lancia">Lancia</option>
-                <option value="lotus">Lotus</option>
-                <option value="mercedes Benz">Mercedes Benz</option>
-                <option value="mini">Mini</option>
-                <option value="morgan">Morgan</option>
-                <option value="peugeot">Peugeot</option>
-                <option value="porsche">Porsche</option>
-                <option value="renault">Renault</option>
-                <option value="seat">Seat</option>
-                <option value="volkswagen">Volkswagen</option>
+              <select className={styles.editselect} data-testid='select' name="make" id="make" value={findCar?.make} onChange={handleInputChangeCar} required>
+                <option className={styles.editoption} value=""></option>
+                <option className={styles.editoption} value="Alfa romeo">Alfa Romeo</option>
+                <option className={styles.editoption} value="Aston martin">Aston Martin</option>
+                <option className={styles.editoption} value="Audi">Audi</option>
+                <option className={styles.editoption} value="Bentley">Bentley</option>
+                <option className={styles.editoption} value="BMW">BMW</option>
+                <option className={styles.editoption} value="Cadillac">Cadillac</option>
+                <option className={styles.editoption} value="Chevrolet">Chevrolet</option>
+                <option className={styles.editoption} value="Citroen">Citröen</option>
+                <option className={styles.editoption} value="Ferrari">Ferrari</option>
+                <option className={styles.editoption} value="Ford">Ford</option>
+                <option className={styles.editoption} value="Jaguar">Jaguar</option>
+                <option className={styles.editoption} value="Lamborghini">Lamborghini</option>
+                <option className={styles.editoption} value="Lancia">Lancia</option>
+                <option className={styles.editoption} value="Lotus">Lotus</option>
+                <option className={styles.editoption} value="Mercedes Benz">Mercedes Benz</option>
+                <option className={styles.editoption} value="Mini">Mini</option>
+                <option className={styles.editoption} value="Morgan">Morgan</option>
+                <option className={styles.editoption} value="Peugeot">Peugeot</option>
+                <option className={styles.editoption} value="Porsche">Porsche</option>
+                <option className={styles.editoption} value="Renault">Renault</option>
+                <option className={styles.editoption} value="Seat">Seat</option>
+                <option className={styles.editoption} value="Volkswagen">Volkswagen</option>
               </select>
-              <div className={styles.options}>
+              <div className={styles.editoptions}>
                 <label htmlFor="model">
                   Model
                   <input
                     type="text"
                     value={findCar?.model}
                     name="model"
-                    className="input-edit"
+                    className={styles.editoption}
                     onChange={handleInputChangeCar}
                     required
                   />
@@ -98,7 +98,7 @@ export default function EditCar () {
                     type="text"
                     value={findCar?.color}
                     name="color"
-                    className="input-edit"
+                    className={styles.editoption}
                     onChange={handleInputChangeCar}
                     required
                   />
@@ -109,21 +109,21 @@ export default function EditCar () {
                     type="text"
                     value={findCar?.year}
                     name="year"
-                    className="input-edit"
+                    className={styles.editoption}
                     onChange={handleInputChangeCar}
                     required
                   />
                 </label>
-                <label htmlFor="info">Description</label>
-                  <textarea name="info" id="info" value={findCar?.info} onChange={handleInputChangeCar} cols={30} rows={5}></textarea>
-                <div className="add-file" id="add-file">
-                  <input type="file" name="picture" aria-label="file"/>
+                <label className={styles.editoption} htmlFor="info">Description</label>
+                  <textarea className={styles.editoption} name="info" id="info" value={findCar?.info} onChange={handleInputChangeCar} cols={30} rows={5}></textarea>
+                <div className={styles.editoption} id="add-file">
+                  <input className={styles.editoption} type="file" name="picture" aria-label="file"/>
                 </div>
               </div>
-              <div className={styles.addcarbuttons}>
-                <button className="save-button" type="submit">SAVE</button>
+              <div className={styles.editcarbuttons}>
+                <button className={styles.editoption} type="submit">SAVE</button>
                 <Link to={'/profile/'}>
-                  <button type="button">CANCEL</button>
+                  <button className={styles.editoption} type="button">CANCEL</button>
                 </Link>
               </div>
             </form>

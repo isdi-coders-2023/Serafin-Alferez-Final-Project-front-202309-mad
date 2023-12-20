@@ -30,14 +30,14 @@ export default function Profile() {
   const userCars = cars.filter((item: Car) => item.author.id === loggedUser!.id );
 
   return(
-    <div>
+    <div className={styles.profilecontainer}>
       <h3 data-testid="cars">{loggedUser?.name}'s cars</h3>
       <div className={styles.mylist}>
         {userCars.length > 0 ? (
           userCars.map((item: Car) => <Card key={item.id} data={item}></Card>)
         ) : (
           <>
-            <p>{loggedUser?.name} Vaya! aún no tienes ningún coche</p>
+            <p className={styles.message}>{loggedUser?.name} Vaya! aún no tienes ningún coche</p>
           </>
         )}
       </div>

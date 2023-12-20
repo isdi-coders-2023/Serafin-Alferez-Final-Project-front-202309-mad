@@ -20,9 +20,9 @@
 }
 
 .addtitle {
-  h3 {
+  h2 {
     color: $color-primario;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0;
   }
 }
@@ -41,7 +41,7 @@
 
   input,
   textarea,
-  select {
+  .addselect {
     width: 100%;
     padding: 6px 10px;
     font-size: 0.8rem;
@@ -50,8 +50,8 @@
     margin-bottom: 0.5rem;
   }
 
-  .savebutton,
-  .cancelbutton button {
+  .addsavebutton,
+  .addcancelbutton button {
     background-color: $color-primario;
     color: white;
     border: none;

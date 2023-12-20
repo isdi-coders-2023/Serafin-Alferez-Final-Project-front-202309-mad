@@ -24,7 +24,6 @@ export const Card = ({data}: Props) => {
   const handleUpdate = () => {
     return (
       <EditCar></EditCar>
-      // navigate('/edit/' + data.id)
     )
   }
 

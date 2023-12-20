@@ -47,13 +47,6 @@ const usersSlice = createSlice({
       state.loginLoadState = 'error';
     });
 
-    // builder.addCase(createCarThunk.fulfilled, (state: UsersState, {payload}:PayloadAction<Car>) => ({
-    //   ...state,
-    //   loggedUser: {
-    //     ...state.loggedUser!,
-    //     cars: [...state.loggedUser!.cars, payload]
-    //   }
-    // }))
 
     builder.addCase(
       createCarThunk.fulfilled,
@@ -68,8 +61,7 @@ const usersSlice = createSlice({
       deleteCarThunk.fulfilled,
       (state, { payload }: { payload: Car['id'] }) => {
         if (state.loggedUser) {
-          state.loggedUser.cars = state.loggedUser.cars.filter((item) => {
-            return item.id !== payload;
+          state.loggedUser.cars = state.loggedUser.cars.filter((item) => { return item.id !== payload;
           });
         }
       }

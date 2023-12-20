@@ -1,9 +1,10 @@
-// add.car.module.scss
+
 
 @import 'variables'; 
 
-.addcontainer {
+.editcontainer {
   background-color: $color-fondo;
+  margin-top: 10px;
   width: 300px;
   padding: 1.5rem;
   display: flex;
@@ -11,17 +12,19 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0 auto;
+  border-radius: 10px;
 }
 
-.addtitle {
+.edittitle {
   h3 {
     color: $color-primario;
     font-size: 1rem;
     margin: 0;
+    background-color: rgba(200, 188, 188, 0);
   }
 }
 
-.addform {
+.editform {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +38,7 @@
 
   input,
   textarea,
-  select {
+  .editselect {
     width: 100%;
     padding: 6px 10px;
     font-size: 0.8rem;
@@ -71,7 +74,7 @@
   }
 }
 
-.addcarbuttons {
+.editcarbuttons {
   display: flex;
   
   gap: 0.5rem;

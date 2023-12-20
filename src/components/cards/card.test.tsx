@@ -48,5 +48,7 @@ describe('Card Component', () => {
 
     const detailsButton = screen.getByTestId('button');
     expect(detailsButton).toBeInTheDocument();
+        
   });
+  
 });
