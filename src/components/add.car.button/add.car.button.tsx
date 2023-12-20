@@ -10,7 +10,7 @@ export function AddCarButton() {
     {loggedUser && (
       <>
       <Link to={'/addcar/'} data-testid="link">
-        <img  src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_10/v1702471802/addcaricon_d6b0zt.svg" height={40} width={40} alt="Add car icon" /> 
+        <img  src="https://res.cloudinary.com/drv1kbmgi/image/upload/h_9/v1702471802/addcaricon_d6b0zt.svg" height={35} width={35} alt="Add car icon" /> 
       </Link>
       </>
     )}

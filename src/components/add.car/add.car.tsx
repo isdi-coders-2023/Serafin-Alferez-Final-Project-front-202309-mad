@@ -19,35 +19,35 @@ export default function AddCar() {
     return (
       <div className={styles.addcontainer}>
         <div className={styles.addtitle}>
-          <h3 className={styles.addtitle}>ADD NEW CAR</h3>
+          <h2 className={styles.addtitle}>ADD NEW CAR</h2>
         </div>
         <div className={styles.addform}>
           <form onSubmit={handleCreateCar} action="">
             <label htmlFor="make">Make</label>
               <select className={styles.select} name="make" id="make" required>
                 <option value=""></option>
-                <option value="alfa romeo">Alfa Romeo</option>
-                <option value="aston martin">Aston Martin</option>
-                <option value="audi">Audi</option>
-                <option value="bentley">Bentley</option>
-                <option value="bmw">BMW</option>
-                <option value="cadillac">Cadillac</option>
-                <option value="chevrolet">Chevrolet</option>
-                <option value="citroen">Citröen</option>
-                <option value="ferrari">Ferrari</option>
-                <option value="ford">Ford</option>
-                <option value="jaguar">Jaguar</option>
-                <option value="lamborghini">Lamborghini</option>
-                <option value="lancia">Lancia</option>
-                <option value="lotus">Lotus</option>
-                <option value="mercedes Benz">Mercedes Benz</option>
-                <option value="mini">Mini</option>
-                <option value="morgan">Morgan</option>
-                <option value="peugeot">Peugeot</option>
-                <option value="porsche">Porsche</option>
-                <option value="renault">Renault</option>
-                <option value="seat">Seat</option>
-                <option value="volkswagen">Volkswagen</option>
+                <option value="Alfa romeo">Alfa Romeo</option>
+                <option value="Aston martin">Aston Martin</option>
+                <option value="Audi">Audi</option>
+                <option value="Bentley">Bentley</option>
+                <option value="BMW">BMW</option>
+                <option value="Cadillac">Cadillac</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Citroen">Citröen</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Ford">Ford</option>
+                <option value="Jaguar">Jaguar</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Lancia">Lancia</option>
+                <option value="Lotus">Lotus</option>
+                <option value="Mercedes Benz">Mercedes Benz</option>
+                <option value="Mini">Mini</option>
+                <option value="Morgan">Morgan</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Renault">Renault</option>
+                <option value="Seat">Seat</option>
+                <option value="Volkswagen">Volkswagen</option>
               </select>
               <div className={styles.options}>
                 <label htmlFor="model">Model</label>
