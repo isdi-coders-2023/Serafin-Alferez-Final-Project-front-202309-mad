@@ -12,9 +12,9 @@ import { useCars } from '../../hooks/use.cars';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
- useLocation: jest.fn().mockReturnValue({
-    pathname: '/profile/'
- } as unknown as Location)
+  useLocation: jest.fn().mockReturnValue({
+      pathname: '/profile/'
+  } as unknown as Location)
 }));
 
 jest.mock('../../hooks/use.cars', () => ({
