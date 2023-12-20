@@ -49,11 +49,11 @@ export default function EditCar () {
     navigate('/profile/');
   };
     return (
-      <div className={styles.addcontainer}>
-        <div className={styles.addtitle}>
-          <h3 className={styles.addtitle}>EDIT CAR</h3>
+      <div className={styles.editcontainer}>
+        <div className={styles.edittitle}>
+          <h3 className={styles.edittitle}>EDIT CAR</h3>
         </div>
-        <div className={styles.addform}>
+        <div className={styles.editform}>
           <form onSubmit={handleUpdateCar} action="" role="form">
               <select className={styles.select} data-testid='select' name="make" id="make" value={findCar?.make} onChange={handleInputChangeCar} required>
                 <option value=""></option>
@@ -80,7 +80,7 @@ export default function EditCar () {
                 <option value="Seat">Seat</option>
                 <option value="Volkswagen">Volkswagen</option>
               </select>
-              <div className={styles.options}>
+              <div className={styles.editoptions}>
                 <label htmlFor="model">
                   Model
                   <input
@@ -120,7 +120,7 @@ export default function EditCar () {
                   <input type="file" name="picture" aria-label="file"/>
                 </div>
               </div>
-              <div className={styles.addcarbuttons}>
+              <div className={styles.editcarbuttons}>
                 <button className="save-button" type="submit">SAVE</button>
                 <Link to={'/profile/'}>
                   <button type="button">CANCEL</button>
