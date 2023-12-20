@@ -1,5 +1,4 @@
-// import { UserRepo } from './api.repo.users';
-// import { User, /*LoginUser*/ } from '../entities/user';
+
 import { Car } from '../entities/car';
 import { CarsRepo } from './api.repo.cars';
 
@@ -111,4 +110,49 @@ describe('Given CarsRepo class', () => {
       await expect(repo.createCar({} as FormData)).rejects.toThrow();
     });
   });
+
+  describe('Given CarsRepo class', () => {
+    const repo = new CarsRepo('');
+    describe('When we call getCarsByPage and response is ok', () => {
+      let jsonMock: jest.Mock;
+  
+      beforeEach(() => {
+        jsonMock = jest.fn().mockResolvedValue([]);
+        global.fetch = jest.fn().mockResolvedValueOnce({
+          ok: true,
+          json: jsonMock,
+        });
+      });
+  
+      test('Then method getCarsByPage should...', async () => {
+        const expected: Car[] = [];
+        const pageNumber = '1';
+        const result = await repo.getCarsByPage(pageNumber);
+        
+        expect(global.fetch).toHaveBeenCalledWith(repo.apiUrl + `/page/${pageNumber}`);    
+        expect(jsonMock).toHaveBeenCalled();      
+        expect(result).toStrictEqual(expected);
+      });
+    });
+  
+    describe('When we call getCarsByPage and response is bad', () => {
+      const token = '';
+  
+      beforeEach(() => {
+        const jsonMock = jest.fn().mockResolvedValue([]);
+        global.fetch = jest.fn().mockResolvedValueOnce({
+          ok: false,
+          json: jsonMock,
+        });
+      });
+  
+      test('Then getCarsByPage should throw an error', async () => {
+        const repo = new CarsRepo(token);
+        const pageNumber = '1';
+        
+        await expect(repo.getCarsByPage(pageNumber)).rejects.toThrow();
+      });
+    });
+  });
+  
 })
