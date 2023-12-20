@@ -8,7 +8,7 @@ export default function Details() {
   const { currentCar } = useCars()
   const carPicture = currentCar && currentCar.picture && makeImageURL(currentCar?.picture.publicId, 300);
   return (
-    <>
+    <div className={styles.detailscontainer}>
       <div className={styles.details} data-testid='button'>
         <Link to={'/home'}>
           <img className={styles.image} src={ carPicture! } alt="imagen del vehículo seleccionado" />
@@ -31,6 +31,6 @@ export default function Details() {
             </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

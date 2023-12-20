@@ -2,8 +2,6 @@ import styles from './home.module.scss'
 
 import { List } from "../list";
 
-// import { useSelector } from "react-redux";
-
 export default function HomePage() {
 
   return (

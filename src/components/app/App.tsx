@@ -1,4 +1,4 @@
-// import { useEffect } from 'react';
+
 import { AppRoutes } from '../app.routes/app.routes';
 
 import { Header } from '../header/header';
