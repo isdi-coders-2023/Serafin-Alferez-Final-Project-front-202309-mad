@@ -2,14 +2,20 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 import { Card } from './card';
 import { User } from '../../entities/user';
+import userEvent from '@testing-library/user-event';
+import { useCars } from '../../hooks/use.cars';
 
-jest.mock('../../hooks/use.users', () => ({
-  useUsers: jest.fn()
-}))
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+ useLocation: jest.fn().mockReturnValue({
+    pathname: '/profile/'
+ } as unknown as Location)
+}));
 
 jest.mock('../../hooks/use.cars', () => ({
   useCars: jest.fn().mockReturnValue({
@@ -21,10 +27,10 @@ jest.mock('../../hooks/use.cars', () => ({
 
 
 describe('Card Component', () => {
-  test('renders Card correctly', () => {
+  beforeEach(() => {
     render(
       <Provider store={store}>
-        <BrowserRouter>
+        <MemoryRouter >
           <Card data={{
             id: '',
             make: 'Alfa Romeo',
@@ -42,12 +48,33 @@ describe('Card Component', () => {
               height: 0
             }
           }}></Card>
-        </BrowserRouter>
+        </MemoryRouter>
       </Provider>
     );
+  })
+  test('renders Card correctly', async() => {
+    
 
-    const detailsButton = screen.getByTestId('button');
-    expect(detailsButton).toBeInTheDocument();
+    const deleteButton = screen.getAllByRole('button');
+    await userEvent.click(deleteButton[0]);
+    expect(useCars().deleteCar).toHaveBeenCalled()
+        
+  });
+  test('renders Card correctly', async() => {
+    
+
+    const detailsButton = screen.getAllByRole('button');
+    await userEvent.click(detailsButton[2]);
+    expect(useCars().handleDetailsPage).toHaveBeenCalled()
+        
+  });
+  test('renders Card correctly', async() => {
+    
+
+    const detailsButton = screen.getAllByRole('button');
+    await userEvent.click(detailsButton[1]);
+  
+    
         
   });
   
