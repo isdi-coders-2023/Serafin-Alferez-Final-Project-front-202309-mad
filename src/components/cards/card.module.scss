@@ -48,9 +48,10 @@
 
 .deletebutton {
   position: absolute;
-  top: 30px;
-  left: 60px;
+  top: 40px;
+  left: 100px;
   z-index: 1;
+  cursor: pointer;
   @media (max-width: 768px) {
     position: absolute;
     top: 30px;
@@ -61,11 +62,12 @@
 .updatebutton {
   display: flex;
   justify-content: center;
-  margin-top: 1rem; 
+  // margin-top: 1.6rem; 
   position: absolute;
-  top: 15px;
-  left: 200px;
+  top: 40px;
+  left: 250px;
   z-index: 1;
+  cursor: pointer;
   @media (max-width: 768px) {
     position: absolute;
     top: 15px;
@@ -78,16 +80,21 @@
   font-size: 1.3rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: rgba(136, 102, 61, 0.266);
   border-radius: 10px;
   padding-right: 3rem;
   padding-left: 3rem;
+  margin-bottom: 0.5rem;
+  height: 3rem;
 }
 
 .make {
   padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .model {
   padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
 }
