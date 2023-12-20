@@ -38,13 +38,9 @@ describe('EditPage', () => {
     );
 
     const submitButton = getByRole('button', { name: /SAVE/i });
-
     userEvent.click(submitButton);
-
     const formElement = getByRole('form'); 
-
     fireEvent.submit(formElement);
-
     expect(updateCarMock).toHaveBeenCalled();
   });
 
