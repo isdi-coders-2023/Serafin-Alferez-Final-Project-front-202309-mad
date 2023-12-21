@@ -1,4 +1,5 @@
 # Classic Cars - Frontend README
+
 ## Proyecto final de Serafín Alférez Alférez
 
 ## Descripción del Proyecto
@@ -9,7 +10,7 @@ Classic Cars es una aplicación web desarrollada como parte del proyecto final p
   La aplicación proporciona un sistema de registro e inicio de sesión para que los usuarios gestionen su cuenta.
 
 - **Lista Global de coches Clásicos:**
-  Los todos los usuarios tienen acceso para ver la lista completa de coches clásicos disponibles en la aplicación.
+  Todos los usuarios tienen acceso para ver la lista completa de coches clásicos disponibles en la aplicación.
 
 - **Funcionalidad de Administrador:**
   Los usuarios registrados y logados pueden:
@@ -40,12 +41,16 @@ Antes de ejecutar el frontend de la aplicación, asegúrate de tener instaladas 
 
 ### Configuración del Frontend:
 1. Clona el repositorio:
-  git clone https://github.com/isdi-coders-2023/Serafin-Alferez-Final-Project-front-202309-mad.git
+   ```bash
+   git clone https://github.com/isdi-coders-2023/Serafin-Alferez-Final-Project-front-202309-mad.git
 
-2. Navega al directorio: cd         Serafin-Alferez-Final-Project-Front-202304-mad
+1. Navegue al directorio:
+cd Serafin-Alferez-Final-Project-Front-202304-mad
 
-3. Instala las dependencias: npm install
+2. Instala las dependencias:
+npm install
 
-4. Configure las variables de entorno: Si es necesario, cree un archivo .env en el directorio raíz del proyecto y configure las variables de entorno necesarias.
+3. Configure las variables de entorno: Si es necesario, cree un archivo .env en el directorio raíz del proyecto y configure las variables de entorno necesarias.
 
-5. Inicie el servidor de desarrollo: npm start
+4. Inicie el servidor de desarrollo:
+  npm start

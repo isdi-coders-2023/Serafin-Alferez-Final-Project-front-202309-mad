@@ -1,4 +1,3 @@
-
 import { Car } from '../entities/car';
 import { CarsRepo } from './api.repo.cars';
 
@@ -90,11 +89,11 @@ describe('Given CarsRepo class', () => {
     test('Then updateCar should throw an error', async () => {
       const carId = '1';
       const token = '';
-      const updatedSkin = {
+      const updatedCar = {
         name: 'Updated Car',
       } as unknown as FormData;
       const repo = new CarsRepo(token);
-      await expect(repo.updateCar(carId, updatedSkin)).rejects.toThrow();
+      await expect(repo.updateCar(carId, updatedCar)).rejects.toThrow();
     });
   });
 
