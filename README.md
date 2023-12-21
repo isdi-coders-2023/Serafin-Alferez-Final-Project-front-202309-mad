@@ -41,8 +41,8 @@ Antes de ejecutar el frontend de la aplicación, asegúrate de tener instaladas 
 
 ### Configuración del Frontend:
 1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/isdi-coders-2023/Serafin-Alferez-Final-Project-front-202309-mad.git
+  ```bash
+  git clone https://github.com/isdi-coders-2023/Serafin-Alferez-Final-Project-front-202309-mad.git
 
 1. Navegue al directorio:
 cd Serafin-Alferez-Final-Project-Front-202304-mad
